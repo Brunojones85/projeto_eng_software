@@ -14,6 +14,9 @@ Code Climate:
 Integrantes do grupo:
 
 Bruno Jorge - 6096109
+
 Denise de Campos Candria - 10835998
+
 Miguel Vasconcelos - 8921558
+
 Wagner
