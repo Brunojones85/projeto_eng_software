@@ -1,19 +1,7 @@
 # projeto_eng_software
 
-Pessoal, desculpa, meu celular ficou com minha esposa. Não tá dando
-pra covnersar agora. Fiz o push e o travis tá buildando corretamente
-agora. Os primeiros pushes tava dando erro de build no travis, mas
-agora tá ok. O travis dá um rake no projeto e o rake não tava no
-Gemfile. Depois que eu coloquei buildou beleza.
-Falta escrever os testes, vou ver como é que faz se alguem descobrir
-antes pode fazer push beleza. Mas hoje ainda eu coloque os testes. Aí
-depois a gente coloca o rails porque as dependencias do cucumber com
-rails é diferentes. Então acho que a gente poderia fazer funcionar
-essa versão mais básica hoje pelo menos e depois a gente coloca o
-rails também.
-Depois que alguém ler aqui pode apagar.... :))
 
-RepositÃ³rio dedicado ao projeto da disciplina "TÃ³picos em Engenharia de Software" do Programa de PÃ³s-GraduaÃ§Ã£o em Sistemas de informaÃ§Ã£o (EACH-USP).
+Repositório dedicado ao projeto da disciplina "Tópicos em Engenharia de Software" do Programa de Pós-Graduação em Sistemas de informaçõoes (EACH-USP).
 
 Nome do projeto:
 
