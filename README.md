@@ -8,6 +8,7 @@ Link do projeto no Travis CI: https://travis-ci.org/Brunojones85/projeto_eng_sof
 Integrantes do grupo:
 
 Bruno Jorge 6096109
+
 Denise
 Miguel
 Wagner
