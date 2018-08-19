@@ -12,7 +12,6 @@ Link integração repositório com o CodeClimate: https://codeclimate.com/github
 Integrantes do grupo:
 
 Bruno Jorge 6096109
-
 Denise
 Miguel
 Wagner
