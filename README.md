@@ -1,17 +1,22 @@
-# projeto_eng_software
-
-
-RepositÛrio dedicado ao projeto da disciplina "TÛpicos em Engenharia de Software" do Programa de PÛs-GraduaÁ„o em Sistemas de informaÁıoes (EACH-USP).
+Reposit√≥rio dedicado ao projeto da disciplina "T√≥picos em Engenharia de Software" do Programa de P√≥s-Gradua√ß√£o em Sistemas de informa√ß√µoes (EACH-USP).
 
 Nome do projeto:
 
-Link do projeto no Travis CI: https://travis-ci.org/Brunojones85/projeto_eng_software
+Travis CI: 
+[![Build Status](https://travis-ci.org/Brunojones85/projeto_eng_software.svg?branch=master)](https://travis-ci.org/Brunojones85/projeto_eng_software)
 
-Link integra√ß√£o reposit√≥rio com o CodeClimate: https://codeclimate.com/github/Brunojones85/projeto_eng_software
+Code Climate:
+[![Code Climate](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/gpa.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
+[![Test Coverage](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/coverage.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
+
+
 
 Integrantes do grupo:
 
-Bruno Jorge 6096109
-Denise
-Miguel
+Bruno Jorge - 6096109
+
+Denise de Campos Candria - 10835998
+
+Miguel Vasconcelos - 8921558
+
 Wagner
