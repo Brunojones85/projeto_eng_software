@@ -2,6 +2,13 @@ language: ruby
 rvm:
   - 2.5.1
     deploy:
+
+# whitelist
+branches:
+  only:
+    - master
+    - heroku-integration
+
 provider: heroku
 api_key:
  secure: "YOUR ENCRYPTED API KEY"
