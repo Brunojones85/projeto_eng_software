@@ -1,5 +1,5 @@
 Feature: Validar Senha
-  Funcionalidade de validação de senha
+  Funcionalidade de validacao de senha
 
 
   Scenario: 2-Verifica a senha de string vazia é realmente rejeitada por ter menos que 1 digito
@@ -43,6 +43,6 @@ Feature: Validar Senha
     Then deve retornar "false"
 
   Scenario: 1,7-Valida se a senha abc passa por estar entre zero e 6 caracteres
-    Given senha abc
+    Given senha "abc"
     When ocorrer a validacao
     Then deve retornar "true"
