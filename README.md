@@ -10,8 +10,7 @@ Code Climate:
 [![Test Coverage](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/coverage.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
 
 
-
-Integrantes do grupo:
+Integrantes do grupo (Nome - Número Usp)
 
 Bruno Jorge - 6096109
 
@@ -19,4 +18,6 @@ Denise de Campos Candria - 10835998
 
 Miguel Vasconcelos - 8921558
 
-Wagner
+Wagner França Marques - 10543398
+
+Marcelo Sabaris Carballo Pinto - 10384662
