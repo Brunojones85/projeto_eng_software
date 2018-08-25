@@ -3,6 +3,16 @@ rvm:
   - 2.5.1
     #    deploy:
 
+services:
+  - postgresql
+  
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+
+script: bundle exec rspec spec --color --format doc    
+
 # whitelist
 branches:
   only:
