@@ -1,7 +1,7 @@
 
 # Agende Rápido  
 
-Para evitar filas e descasos nas madrugadas com os pacientes do SUS, que necessitam agendar consultas e exames, o Agende Rápido propõe humanizar a marcação de consultas e exames através de um software de qualidade, simples e gratuito para a população.
+Evitando filas e descasos nas madrugadas com os pacientes do SUS, que necessitam agendar consultas e exames, o Agende Rápido propõe humanizar a marcação de consultas e exames através de um software de qualidade, simples e gratuito para a população.
 
 |  Travis CI                     | Code Climate  |
 | ------------------------------ |:-------:      |
