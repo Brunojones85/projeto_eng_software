@@ -11,6 +11,9 @@ Code Climate:
 [![Code Climate](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/gpa.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
 [![Test Coverage](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/coverage.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
 
+Integração GitHub <-> Heroku
+https://engsoftware2018.herokuapp.com
+
 
 Integrantes do grupo (Nome - Número Usp)
 
