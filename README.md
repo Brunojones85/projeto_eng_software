@@ -1,6 +1,8 @@
 Repositório dedicado ao projeto da disciplina "Tópicos em Engenharia de Software" do Programa de Pós-Graduação em Sistemas de informaçõoes (EACH-USP).
 
-Nome do projeto:
+Título do projeto: Agende Rápido  
+
+Descrição: Para evitar filas e descasos nas madrugadas com os pacientes do SUS, que necessitam agendar consultas e exames, o Agende Rápido propõe humanizar a marcação de consultas e exames através de um software de qualidade, simples e gratuito para a população.
 
 Travis CI: 
 [![Build Status](https://travis-ci.org/Brunojones85/projeto_eng_software.svg?branch=master)](https://travis-ci.org/Brunojones85/projeto_eng_software)
