@@ -3,15 +3,9 @@
 
 Para evitar filas e descasos nas madrugadas com os pacientes do SUS, que necessitam agendar consultas e exames, o Agende Rápido propõe humanizar a marcação de consultas e exames através de um software de qualidade, simples e gratuito para a população.
 
-- Travis CI: 
-[![Build Status](https://travis-ci.org/Brunojones85/projeto_eng_software.svg?branch=master)](https://travis-ci.org/Brunojones85/projeto_eng_software)
-
-- Code Climate:  
-[![Code Climate](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/gpa.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
-[![Test Coverage](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/coverage.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)
-
-- Integração GitHub <-> Heroku
-https://engsoftware2018.herokuapp.com
+|  Travis CI                     | Code Climate  | Integração GitHub <-> Heroku  |
+| ------------------------------ |:-------:      |:-------:|
+|[![Build Status](https://travis-ci.org/Brunojones85/projeto_eng_software.svg?branch=master)](https://travis-ci.org/Brunojones85/projeto_eng_software)               |  [![Code Climate](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/gpa.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)  [![Test Coverage](https://codeclimate.com/github/Brunojones85/projeto_eng_software/badges/coverage.svg)](https://codeclimate.com/github/Brunojones85/projeto_eng_software)| https://engsoftware2018.herokuapp.com |
 
 ### Integrantes
 
