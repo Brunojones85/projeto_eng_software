@@ -60,7 +60,11 @@ development:
 test: &test
   <<: *default
   database: novo_sus_test
+  host: localhost
+  username: admin
 
+  # The password associated with the postgres role (username).
+  password: admin123
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -83,6 +87,7 @@ test: &test
 production:
   <<: *default
   database: novo_sus_production
+
   username: admin
   #password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>
   password: admin123
