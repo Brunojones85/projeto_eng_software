@@ -31,10 +31,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: novo_sus
+  username: admin
 
   # The password associated with the postgres role (username).
-  #password:
+  password: admin123
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -83,8 +83,9 @@ test: &test
 production:
   <<: *default
   database: novo_sus_production
-  username: novo_sus
-  password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>
+  username: admin
+  #password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>
+  password: admin123
 
 cucumber:
   <<: *test
