@@ -1,6 +1,7 @@
 namespace :nossastasks do
   desc "Popula Tabela de Usuarios com usuario padrao admin senha admin123"
   task popula_usuarios: :environment do
+    puts "desc Popula Tabela de Usuarios com usuario padrao admin senha admin123"
       Usuario.create(
         nome: 'Admin',
         numerosus: 123,
@@ -17,6 +18,7 @@ namespace :nossastasks do
 
   desc "Popula Tabela de Usuarios de Testes conforme pano de testes necessarios pro cucumber"
   task popula_usuarios_para_testes: :environment do
+    puts "Popula Tabela de Usuarios de Testes conforme pano de testes necessarios pro cucumber"
     if Rails.env.test?
       10.times do |i|
         usuario = Usuario.create(
