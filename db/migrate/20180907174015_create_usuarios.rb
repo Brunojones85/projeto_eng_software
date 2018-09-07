@@ -11,7 +11,6 @@ class CreateUsuarios < ActiveRecord::Migration[5.2]
       t.string :telcel
       t.string :sexo
 
-
       t.timestamps
     end
   end
