@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2018_09_07_043107) do
     t.string "nome"
     t.string "numerosus"
     t.string "senha"
+    t.string "cpf"
+    t.string "email"
+    t.date "dtanasc"
+    t.string "telfixo"
+    t.string "telcel"
+    t.string "sexo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

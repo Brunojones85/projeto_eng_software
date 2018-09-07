@@ -62,7 +62,7 @@ development:
 test: &test
   <<: *default
   database: novo_sus_test
-  host: localhost
+  #host: localhost
   username: admin
 
   # The password associated with the postgres role (username).

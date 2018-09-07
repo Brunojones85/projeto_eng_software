@@ -1,0 +1,7 @@
+#+Title: Nossas Anotacoes sobre o projeto
+
+* Faker
+  No futuro usar https://github.com/bernardo/cpf_faker
+
+* Para criar uma rake test
+  rails generate task nossastasks popula_usuarios
