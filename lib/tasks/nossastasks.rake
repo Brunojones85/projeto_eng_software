@@ -22,12 +22,12 @@ namespace :nossastasks do
         usuario = Usuario.create(
           nome: Faker::Name.name,
           numerosus: Faker::Number.number(10), #https://github.com/stympy/faker/blob/master/doc/number.md
-          senha: Faker::String.random(4),
-          cpf: Faker::String.random(11),
+	  senha: Faker::Internet.password,
+	  cpf: Faker::CPF.numeric,
           email: Faker::Internet.email,
           dtanasc:Faker::Date.birthday(18, 65), #https://github.com/stympy/faker/blob/master/doc/date.md
-          telfixo: Faker::String.random(4), #https://github.com/stympy/faker/blob/master/doc/string.md
-          telcel:Faker::String.random(4),
+          telfixo: Faker::PhoneNumber.phone_number, #https://github.com/stympy/faker/blob/master/doc/string.md
+          telcel:Faker::PhoneNumber.cell_phone,
           sexo:Faker::Gender.binary_type, #https://github.com/stympy/faker/blob/master/doc/gender.md
           created_at:Time.now.to_datetime,
           updated_at:Time.now.to_datetime);
