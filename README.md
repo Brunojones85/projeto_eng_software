@@ -11,6 +11,15 @@ Evitando filas e descasos nas madrugadas com os pacientes do SUS, que necessitam
 | Integração GitHub <-----> Heroku       |
 | ---------------------------------------|
 | https://engsoftware2018.herokuapp.com  |  
+## rodar aplicacao
+ # criacao banco 
+    criar o datase 
+         rake db:create:all 
+    Apos criar o banco rodar o comando abaixo para o skafold criar todas as tabelas do active record  
+         bin/rails db:migrate RAILS_ENV=development  
+    rails server -> para rodar o rails
+    endereco para cadastro de usuario 
+    http://localhost:3000/usuarios
 
 ### Integrantes
 

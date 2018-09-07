@@ -84,13 +84,13 @@ test: &test
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: novo_sus_production
+#production:
+ # <<: *default
+ # database: novo_sus_production
 
-  username: admin
+  #username: admin
   #password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>
-  password: admin123
+  #password: admin123
 
 cucumber:
   <<: *test
