@@ -3,5 +3,11 @@
 * Faker
   No futuro usar https://github.com/bernardo/cpf_faker
 
+* Geração de dados para o banco de testes  
+  rake nossastasks:popula_usuarios_para_testes RAILS_ENV=test
+  pra ver nossas taks é so dar um rake -T nossastasks
+  Só funciona se der um rake db:create antes
+
+
 * Para criar uma rake test
   rails generate task nossastasks popula_usuarios

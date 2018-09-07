@@ -24,12 +24,12 @@ namespace :nossastasks do
         usuario = Usuario.create(
           nome: Faker::Name.name,
           numerosus: Faker::Number.number(10), #https://github.com/stympy/faker/blob/master/doc/number.md
-          senha: Faker::String.random(4),
-          cpf: Faker::String.random(11),
+          senha: Faker::Number.number(10),
+          cpf: ""+Faker::Number.number(11).round.to_s,
           email: Faker::Internet.email,
           dtanasc:Faker::Date.birthday(18, 65), #https://github.com/stympy/faker/blob/master/doc/date.md
-          telfixo: Faker::String.random(4), #https://github.com/stympy/faker/blob/master/doc/string.md
-          telcel:Faker::String.random(4),
+          telfixo: ""+Faker::Number.number(9).round.to_s, #https://github.com/stympy/faker/blob/master/doc/string.md
+          telcel: ""+Faker::Number.number(10).round.to_s,
           sexo:Faker::Gender.binary_type, #https://github.com/stympy/faker/blob/master/doc/gender.md
           created_at:Time.now.to_datetime,
           updated_at:Time.now.to_datetime);
@@ -38,5 +38,20 @@ namespace :nossastasks do
       puts "Essa tasks so roda no Rails.env.test"
     end
   end
+
+  #https://stackoverflow.com/questions/14663963/is-there-a-faster-way-to-write-this-rake-command-rake-dbdrop-dbcreate-dbmig
+ 
+  desc "Configura banco no ambiente dev e test"
+  task :prepara_db, [] => :environment do
+    raise "Not allowed to run on production" if Rails.env.production?
+        
+    Rake::Task['db:drop'].execute
+    Rake::Task['db:create'].execute
+    Rake::Task['db:migrate'].execute
+    Rake::Task['db:seed'].execute
+  end
 end
+
+
+
   

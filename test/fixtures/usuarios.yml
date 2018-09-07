@@ -1,8 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyText
+AdminUser:
+  validates :nome, presence: true
+  validates :numerosus, presence: true
+  validates :senha, presence: true  
+  validates :cpf, presence: true
+  validates :email, presence: true
 
 two:
   title: MyString
