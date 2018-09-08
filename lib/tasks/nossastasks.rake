@@ -1,7 +1,7 @@
 namespace :nossastasks do
   desc "Popula Tabela de Usuarios com usuario padrao admin senha admin123"
-  task popula_usuarios: :environment do
-    puts "desc Popula Tabela de Usuarios com usuario padrao admin senha admin123"
+  task cria_usuario_admin: :environment do
+    puts "Rodando nossaTak cria_usuario_admin"
       Usuario.create(
         nome: 'Admin',
         numerosus: 123,
@@ -16,12 +16,12 @@ namespace :nossastasks do
         updated_at:Time.now.to_datetime);    
     end
 
-  desc "Popula Tabela de Usuarios de Testes conforme pano de testes necessarios pro cucumber"
-  task popula_usuarios_para_testes: :environment do
-    puts "Popula Tabela de Usuarios de Testes conforme pano de testes necessarios pro cucumber"
+  desc "NossaTaks Popula Tabela com usuarios aleatorios para Testes conforme"
+  task popula_usuarios_aleatorios_para_testes: :environment do
+    puts "Rodando nossaTask popula_usuarios_aleatorios_para_testes"
     if Rails.env.test?
       10.times do |i|
-        usuario = Usuario.create(
+        Usuario.create(
           nome: Faker::Name.name,
           numerosus: Faker::Number.number(10), #https://github.com/stympy/faker/blob/master/doc/number.md
 	  password: Faker::Internet.password,
@@ -39,17 +39,104 @@ namespace :nossastasks do
     end
   end
 
-  #https://stackoverflow.com/questions/14663963/is-there-a-faster-way-to-write-this-rake-command-rake-dbdrop-dbcreate-dbmig
- 
-  desc "Configura banco no ambiente dev e test"
-  task :prepara_db, [] => :environment do
-    raise "Not allowed to run on production" if Rails.env.production?
-        
-    Rake::Task['db:drop'].execute
-    Rake::Task['db:create'].execute
-    Rake::Task['db:migrate'].execute
-    Rake::Task['db:seed'].execute
+  desc "NossaTaks Popula Tabela de Usuarios para tesde do cenario: Login com credenciais validas"
+  task popula_usuarios_testar_cenario_login_com_credenciais_validas: :environment do
+    puts "Rodando nossaTask popula_usuarios_testar_cenario_login_com_credenciais_validas"
+    if Rails.env.test?
+
+      UmNumerosus = 
+      UmCpf = 
+      UmEmail = 
+      UmaDataDeNascimento = 
+      UmTelfixo = 
+      UmTelcel = 
+      UmSexo = 
+
+      puts " Criando usuario Denise"
+      Usuario.create(
+        nome: 'denise',
+        numerosus: Faker::Number.number(10),
+	password: 'denise123',
+	cpf: Faker::CPF.numeric,
+        email: Faker::Internet.email,
+        dtanasc: Faker::Date.birthday(18, 65),
+        telfixo: Faker::PhoneNumber.phone_number,
+        telcel: Faker::PhoneNumber.cell_phone,
+        sexo: Faker::Gender.binary_type,
+        created_at:Time.now.to_datetime,
+        updated_at:Time.now.to_datetime);
+
+      puts "Criando usuario"
+      Usuario.create(
+        nome: 'admin',
+        numerosus: Faker::Number.number(10),
+	password: 'admin123',
+	cpf: Faker::CPF.numeric,
+        email: Faker::Internet.email,
+        dtanasc: Faker::Date.birthday(18, 65),
+        telfixo: Faker::PhoneNumber.phone_number,
+        telcel: Faker::PhoneNumber.cell_phone,
+        sexo: Faker::Gender.binary_type,
+        created_at:Time.now.to_datetime,
+        updated_at:Time.now.to_datetime);
+
+      puts "Criando usuario miguel"
+      Usuario.create(
+        nome: 'miguel',
+        numerosus: Faker::Number.number(10),
+	password: 'miguel123',
+	cpf: Faker::CPF.numeric,
+        email: Faker::Internet.email,
+        dtanasc: Faker::Date.birthday(18, 65),
+        telfixo: Faker::PhoneNumber.phone_number,
+        telcel: Faker::PhoneNumber.cell_phone,
+        sexo: Faker::Gender.binary_type,
+        created_at:Time.now.to_datetime,
+        updated_at:Time.now.to_datetime);
+
+      puts "Criando usuario wagner"
+      Usuario.create(
+        nome: 'wagner',
+        numerosus: Faker::Number.number(10),
+	password: 'wagner123',
+	cpf: Faker::CPF.numeric,
+        email: Faker::Internet.email,
+        dtanasc: Faker::Date.birthday(18, 65),
+        telfixo: Faker::PhoneNumber.phone_number,
+        telcel: Faker::PhoneNumber.cell_phone,
+        sexo: Faker::Gender.binary_type,
+        created_at:Time.now.to_datetime,
+        updated_at:Time.now.to_datetime);
+
+      puts "Criando usuario marcelo"
+      Usuario.create(
+        nome: 'marcelo',
+        numerosus: Faker::Number.number(10),
+	password: 'marcelo123',
+	cpf: Faker::CPF.numeric,
+        email: Faker::Internet.email,
+        dtanasc: Faker::Date.birthday(18, 65),
+        telfixo: Faker::PhoneNumber.phone_number,
+        telcel: Faker::PhoneNumber.cell_phone,
+        sexo: Faker::Gender.binary_type,
+        created_at: Time.now.to_datetime,
+        updated_at: Time.now.to_datetime);
+    else
+       puts "Essa task so pode rodar no Rails.env.test"
+    end
   end
+  
+#  https://stackoverflow.com/questions/14663963/is-there-a-faster-way-to-write-this-rake-command-rake-dbdrop-dbcreate-dbmig
+#  OS COMANDOS DESTA TAG FORAM COLOCADOS DIRETAMENTE NO Rakefile 
+#  desc "Configura banco no ambiente dev e test"
+#  task :prepara_db, [] => :environment do
+#    raise "Not allowed to run on production" if Rails.env.production?
+        
+#    Rake::Task['db:drop'].execute
+#    Rake::Task['db:create'].execute
+#    Rake::Task['db:migrate'].execute
+#    Rake::Task['db:seed'].execute
+#  end
 end
 
 
