@@ -1,15 +1,7 @@
-<%= form_with(model: usuario, local: true) do |form| %>
-  <% if usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+<h2>Sign up</h2>
 
-      <ul>
-      <% usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+  <%= devise_error_messages! %>
 
   <div class="field">
     <%= form.label :nome %>
@@ -64,6 +56,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Sign up" %>
   </div>
 <% end %>
+
+<%= render "devise/shared/links" %>

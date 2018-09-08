@@ -29,31 +29,11 @@ RSpec.describe UsuariosController, type: :controller do
   # Usuario. As you add validations to Usuario, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {
-      nome:"Nome usuario 1",
-      numerosus:"12345678",
-      senha:"53Nh4 do U$uario",
-      cpf:"123.123.123-12",
-      email:"mail@email.com",
-      dtanasc: "2018-09-07",
-      telfixo: "9 1234-1234",
-      telcel: "9 1234-1234",
-      sexo: "M"
-    }
+    skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
-        {
-      nome: nil,
-      numerosus: nil,
-      senha: nil,
-      cpf: nil,
-      email: nil,
-      dtanasc: nil,
-      telfixo: nil,
-      telcel: nil,
-      sexo: nil
-    }
+    skip("Add a hash of attributes invalid for your model")
   }
 
   # This should return the minimal set of values that should be in the session
@@ -117,24 +97,14 @@ RSpec.describe UsuariosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        {
-          nome:"Nome usuario 2",
-          numerosus:"987654321",
-          senha:"53Nh4 do U$uario NOVO",
-          cpf:"456.456.456-45",
-          email:"mail2@email.com",
-          dtanasc: "2018-09-07",
-          telfixo: "9 1234-1234",
-          telcel: "9 1234-1234",
-          sexo: "F"
-        }
+        skip("Add a hash of attributes valid for your model")
       }
 
       it "updates the requested usuario" do
         usuario = Usuario.create! valid_attributes
         put :update, params: {id: usuario.to_param, usuario: new_attributes}, session: valid_session
         usuario.reload
-        expect(usuario.cpf == new_attributes[:cpf])
+        skip("Add assertions for updated state")
       end
 
       it "redirects to the usuario" do

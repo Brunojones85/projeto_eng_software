@@ -8,6 +8,19 @@
     </head>
 
     <body>
+    <div id="user_nav">
+         <% if usuario_signed_in? %>
+
+            Seja bem-vindo <%= current_usuario.nome %> !
+
+             <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
+             <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
+
+         <% else %>
+            Seja bem-vindo ! <%= link_to 'Criar uma nova conta', new_usuario_registration_path %> ou <%= link_to 'Entrar', new_usuario_session_path %>
+        <% end %>
+    </div>
+
         <div class="home" id="home">
             <div class="header">
                 <a href="#home" class="item-menu">Home</a>
@@ -17,4 +30,5 @@
         </div>
     </body>
 </html>
+
 

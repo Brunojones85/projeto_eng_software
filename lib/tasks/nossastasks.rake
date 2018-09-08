@@ -5,7 +5,7 @@ namespace :nossastasks do
       Usuario.create(
         nome: 'Admin',
         numerosus: 123,
-        senha: 'admin123',
+        password: 'admin123',
         cpf: '123456',
         email: 'admin@amdin',
         dtanasc:Time.now.to_datetime, #https://stackoverflow.com/questions/5474164/rails-seeding-database-data-and-date-formats
@@ -24,7 +24,7 @@ namespace :nossastasks do
         usuario = Usuario.create(
           nome: Faker::Name.name,
           numerosus: Faker::Number.number(10), #https://github.com/stympy/faker/blob/master/doc/number.md
-	  senha: Faker::Internet.password,
+	  password: Faker::Internet.password,
 	  cpf: Faker::CPF.numeric,
           email: Faker::Internet.email,
           dtanasc:Faker::Date.birthday(18, 65), #https://github.com/stympy/faker/blob/master/doc/date.md

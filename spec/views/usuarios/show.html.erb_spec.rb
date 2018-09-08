@@ -5,9 +5,9 @@ RSpec.describe "usuarios/show", type: :view do
     @usuario = assign(:usuario, Usuario.create!(
       :nome => "Nome",
       :numerosus => "Numerosus",
-      :senha => "Senha",
       :cpf => "Cpf",
-      :email => "Email",
+      :email => "email@mail.com",
+      :password =>"password",
       :telfixo => "Telfixo",
       :telcel => "Telcel",
       :sexo => "Sexo"
@@ -18,9 +18,9 @@ RSpec.describe "usuarios/show", type: :view do
     render
     expect(rendered).to match(/Nome/)
     expect(rendered).to match(/Numerosus/)
-    expect(rendered).to match(/Senha/)
     expect(rendered).to match(/Cpf/)
-    expect(rendered).to match(/Email/)
+    expect(rendered).to match(/email/)
+    expect(rendered).to match(/password/)   
     expect(rendered).to match(/Telfixo/)
     expect(rendered).to match(/Telcel/)
     expect(rendered).to match(/Sexo/)

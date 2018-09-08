@@ -6,9 +6,9 @@ RSpec.describe "usuarios/index", type: :view do
       Usuario.create!(
         :nome => "Nome",
         :numerosus => "Numerosus",
-        :senha => "Senha",
+	:email => "email@mail.com",
+	:password => "password",
         :cpf => "Cpf",
-        :email => "Email",
         :telfixo => "Telfixo",
         :telcel => "Telcel",
         :sexo => "Sexo"
@@ -16,9 +16,9 @@ RSpec.describe "usuarios/index", type: :view do
       Usuario.create!(
         :nome => "Nome",
         :numerosus => "Numerosus",
-        :senha => "Senha",
+        :password => "password",
+	:email => "email2@mail.com",
         :cpf => "Cpf",
-        :email => "Email",
         :telfixo => "Telfixo",
         :telcel => "Telcel",
         :sexo => "Sexo"
@@ -30,9 +30,10 @@ RSpec.describe "usuarios/index", type: :view do
     render
     assert_select "tr>td", :text => "Nome".to_s, :count => 2
     assert_select "tr>td", :text => "Numerosus".to_s, :count => 2
-    assert_select "tr>td", :text => "Senha".to_s, :count => 2
     assert_select "tr>td", :text => "Cpf".to_s, :count => 2
-    assert_select "tr>td", :text => "Email".to_s, :count => 2
+    assert_select "tr>td", :text => "email@mail.com".to_s, :count =>1 
+    assert_select "tr>td", :text => "email2@mail.com".to_s, :count =>1
+    assert_select "tr>td", :text => "password".to_s, :count => 2
     assert_select "tr>td", :text => "Telfixo".to_s, :count => 2
     assert_select "tr>td", :text => "Telcel".to_s, :count => 2
     assert_select "tr>td", :text => "Sexo".to_s, :count => 2

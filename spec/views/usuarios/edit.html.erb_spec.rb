@@ -4,10 +4,10 @@ RSpec.describe "usuarios/edit", type: :view do
   before(:each) do
     @usuario = assign(:usuario, Usuario.create!(
       :nome => "MyString",
+      :email=>"myString\@mail.com",
       :numerosus => "MyString",
-      :senha => "MyString",
+      :password => "MyString",
       :cpf => "MyString",
-      :email => "MyString",
       :telfixo => "MyString",
       :telcel => "MyString",
       :sexo => "MyString"
@@ -20,14 +20,12 @@ RSpec.describe "usuarios/edit", type: :view do
     assert_select "form[action=?][method=?]", usuario_path(@usuario), "post" do
 
       assert_select "input[name=?]", "usuario[nome]"
+      assert_select "input[name=?]","usuario[email]"
 
       assert_select "input[name=?]", "usuario[numerosus]"
-
-      assert_select "input[name=?]", "usuario[senha]"
+      assert_select "input[name=?]", "usuario[password]"
 
       assert_select "input[name=?]", "usuario[cpf]"
-
-      assert_select "input[name=?]", "usuario[email]"
 
       assert_select "input[name=?]", "usuario[telfixo]"
 
