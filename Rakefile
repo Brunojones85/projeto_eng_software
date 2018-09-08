@@ -15,8 +15,8 @@ Rails.application.load_tasks
 Rake::Task['db:drop'].execute
 Rake::Task['db:create'].execute
 Rake::Task['db:migrate'].execute
-Rake::Task['db:seed'].execute
-
+Rake::Task['nossastasks:popula_usuarios'].execute
+Rake::Task['nossastasks:popula_usuarios_para_testes'].execute
 
 #task default: ["nossastasks:prepara_db" "nossastasks:popula_usuarios" "nossastasks:popula_usuarios_para_testes"]
 #task default: [":rodaNossasTasks_PreparaDb"]
