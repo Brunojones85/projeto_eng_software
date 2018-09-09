@@ -1,24 +1,20 @@
-Given("Convidado encontra na tela de login") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("Convidado encontra na tela de login") do  
+  visit "usuarios/sign_in"
 end
 
-When("O convidado preenche {string} with {string}") do |string, string2|
-  pending # Write code here that turns the phrase above into concrete actions
+When("O convidado preenche email with {string}") do |string|
+  fill_in 'Email' , with: string
 end
 
-When("preenche {string} with {string}") do |string, string2|
-  pending # Write code here that turns the phrase above into concrete actions
+And("preenche a senha com  with {string}") do |string|
+  fill_in 'Password', with: string
 end
 
-When("pressiona o botao de {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+And("pressiona o botao de entrar") do
+  find(:xpath, "/html/body/div/div/form/button").click()
 end
 
-Then("o nome dele deve constar na pagina como usuario logado na pagina principal") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
-Then("tambem deve ver a mensagem {string}") do |string, table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+Then("ainda na pagina de login recebe a mensagem de email ou senha invalida") do
+    expect(page).to have_content "Email ou senha inv"
 end

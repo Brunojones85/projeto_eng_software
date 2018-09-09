@@ -5,7 +5,7 @@ namespace :nossastasks do
       Usuario.create(
         nome: 'Admin',
         numerosus: 123,
-        password: 'admin123',
+        password: '123456',
         cpf: '123456',
         email: 'admin@amdin',
         dtanasc:Time.now.to_datetime, #https://stackoverflow.com/questions/5474164/rails-seeding-database-data-and-date-formats
@@ -44,21 +44,13 @@ namespace :nossastasks do
     puts "Rodando nossaTask popula_usuarios_testar_cenario_login_com_credenciais_validas"
     if Rails.env.test?
 
-      UmNumerosus = 
-      UmCpf = 
-      UmEmail = 
-      UmaDataDeNascimento = 
-      UmTelfixo = 
-      UmTelcel = 
-      UmSexo = 
-
       puts " Criando usuario Denise"
       Usuario.create(
         nome: 'denise',
         numerosus: Faker::Number.number(10),
-	password: 'denise123',
+	password: '123456',
 	cpf: Faker::CPF.numeric,
-        email: Faker::Internet.email,
+        email: "denise@denise",
         dtanasc: Faker::Date.birthday(18, 65),
         telfixo: Faker::PhoneNumber.phone_number,
         telcel: Faker::PhoneNumber.cell_phone,
@@ -72,7 +64,7 @@ namespace :nossastasks do
         numerosus: Faker::Number.number(10),
 	password: 'admin123',
 	cpf: Faker::CPF.numeric,
-        email: Faker::Internet.email,
+        email: "admin@admin",
         dtanasc: Faker::Date.birthday(18, 65),
         telfixo: Faker::PhoneNumber.phone_number,
         telcel: Faker::PhoneNumber.cell_phone,
@@ -84,9 +76,9 @@ namespace :nossastasks do
       Usuario.create(
         nome: 'miguel',
         numerosus: Faker::Number.number(10),
-	password: 'miguel123',
+	password: '123456',
 	cpf: Faker::CPF.numeric,
-        email: Faker::Internet.email,
+        email: "miguel@miguel",
         dtanasc: Faker::Date.birthday(18, 65),
         telfixo: Faker::PhoneNumber.phone_number,
         telcel: Faker::PhoneNumber.cell_phone,
@@ -98,9 +90,9 @@ namespace :nossastasks do
       Usuario.create(
         nome: 'wagner',
         numerosus: Faker::Number.number(10),
-	password: 'wagner123',
+	password: '123456',
 	cpf: Faker::CPF.numeric,
-        email: Faker::Internet.email,
+        email:  "wagner@wagner",
         dtanasc: Faker::Date.birthday(18, 65),
         telfixo: Faker::PhoneNumber.phone_number,
         telcel: Faker::PhoneNumber.cell_phone,
@@ -112,9 +104,9 @@ namespace :nossastasks do
       Usuario.create(
         nome: 'marcelo',
         numerosus: Faker::Number.number(10),
-	password: 'marcelo123',
+	password: '123456',
 	cpf: Faker::CPF.numeric,
-        email: Faker::Internet.email,
+        email: "marcelo@marcelo",
         dtanasc: Faker::Date.birthday(18, 65),
         telfixo: Faker::PhoneNumber.phone_number,
         telcel: Faker::PhoneNumber.cell_phone,
