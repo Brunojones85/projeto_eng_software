@@ -89,6 +89,8 @@ test: &test
 #production:
  # <<: *default
  # database: novo_sus_production
+production:
+  url:  postgres://rceiuttujnvjdx:0441dfd36f68422ccf3b3c8cf0597008627c588d954b0308fa2d1e6e6fabae0d@ec2-50-17-194-129.compute-1.amazonaws.com:5432/d2gig43jeqg33j
 
   #username: admin
   #password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>
