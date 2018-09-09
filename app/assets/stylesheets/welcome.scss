@@ -11,7 +11,10 @@ a{
     color: black;
 }
 
+//= depend_on_asset "foto1.jpg"
+
 .home{
+
     background-image: url( image_path( 'foto1.jpg') );
     background-size: 100%;
      height: 1000px;

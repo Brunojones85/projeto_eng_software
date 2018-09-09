@@ -1,12 +1,16 @@
-<h2>Log in</h2>
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - ACESSAR</h1>
+</header>
 
+<div class="w3-container w3-half w3-margin-top">
+<div class="w3-container w3-card-4">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field w3-input">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field w3-input">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
@@ -18,9 +22,11 @@
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <button class="w3-button w3-block w3-teal w3-section w3-padding" type="submit">ENTRAR</button>
 <% end %>
-
+<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+
