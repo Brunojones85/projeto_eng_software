@@ -7,3 +7,4 @@ Feature: Login
     And preenche a senha com  with "123456"
     And pressiona o botao de entrar
     Then ainda na pagina de login recebe a mensagem de email ou senha invalida
+

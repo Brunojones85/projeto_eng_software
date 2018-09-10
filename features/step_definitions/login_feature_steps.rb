@@ -1,8 +1,8 @@
-Given("Convidado encontra na tela de login") do  
-  visit "usuarios/sign_in"
+Given("Convidado encontra na tela de login") do
+  visit "usuarios/sign_in"  
 end
 
-When("O convidado preenche email with {string}") do |string|
+And("O convidado preenche email with {string}") do |string|
   fill_in 'Email' , with: string
 end
 
@@ -18,3 +18,5 @@ end
 Then("ainda na pagina de login recebe a mensagem de email ou senha invalida") do
     expect(page).to have_content "Email ou senha inv"
 end
+
+
