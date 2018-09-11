@@ -1,12 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-AdminUser:
-  validates :nome, presence: true
-  validates :numerosus, presence: true
-  validates :senha, presence: true  
-  validates :cpf, presence: true
-  validates :email, presence: true
+usuario1:
+  nome:  'usuario1'
+  numerosus: '123456789'
+  cpf: '123.123.123-12'
+  dtanasc: '2018-09-09'
+  telfixo: '11 94444-4444'
+  telcel: '11 9 9999-9999'
+  sexo: 'male'
+  created_at: '2018-09-09'
+  updated_at: '2018-09-09'
 
-two:
-  title: MyString
-  body: MyText
+
+#two:
+# title: MyString
+# body: MyText

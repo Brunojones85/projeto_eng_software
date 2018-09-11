@@ -33,10 +33,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: admin
+  #  username: admin
 
   # The password associated with the postgres role (username).
-  password: admin123
+  #  password: admin123
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -63,10 +63,10 @@ test: &test
   <<: *default
   database: novo_sus_test
   #host: localhost
-  username: admin
+  #  username: admin
 
   # The password associated with the postgres role (username).
-  password: admin123
+  #  password: admin123
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -89,6 +89,8 @@ test: &test
 #production:
  # <<: *default
  # database: novo_sus_production
+production:
+  url:  postgres://rceiuttujnvjdx:0441dfd36f68422ccf3b3c8cf0597008627c588d954b0308fa2d1e6e6fabae0d@ec2-50-17-194-129.compute-1.amazonaws.com:5432/d2gig43jeqg33j
 
   #username: admin
   #password: <%= ENV['NOVO_SUS_DATABASE_PASSWORD'] %>

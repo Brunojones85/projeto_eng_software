@@ -1,18 +1,10 @@
 Feature: Login
   Testa Funcionalide de Login (Exemplo:https://gist.github.com/thuss/923307)
 
-  Scenario: Login com credenciais validas
+  Scenario: Login com credenciais INvalidas
     Given Convidado encontra na tela de login
-    When O convidado preenche "Usuario" with "<usuario>"
-    And preenche "Senha" with "<senha>"
-    And pressiona o botao de "Login"
-    Then o nome dele deve constar na pagina como usuario logado na pagina principal
-    And tambem deve ver a mensagem "<mensagem>"
-
-      | usuario | senha      | pagina           | mensagem                    |
-      | admin   | admin123   | Pagina Principal | Login realizado com sucesso |
-      | denise  | denise123  | Pagina Principal | Login realizado com sucesso |
-      | miguel  | miguel123  | Pagina Principal | Login realizado com sucesso |
-      | wagner  | wagner123  | Pagina Principal | Login realizado com sucesso |
-      | marcelo | marcelo123 | Pagina Principal | Login realizado com sucesso |
+    When O convidado preenche email with "asdfasdfasd"
+    And preenche a senha com  with "123456"
+    And pressiona o botao de entrar
+    Then ainda na pagina de login recebe a mensagem de email ou senha invalida
 

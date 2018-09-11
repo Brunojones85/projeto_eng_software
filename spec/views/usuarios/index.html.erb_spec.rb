@@ -15,10 +15,10 @@ RSpec.describe "usuarios/index", type: :view do
       ),
       Usuario.create!(
         :nome => "Nome",
-        :numerosus => "Numerosus",
+        :numerosus => "Numerosus 2",
         :password => "password",
 	:email => "email2@mail.com",
-        :cpf => "Cpf",
+        :cpf => "Cpf 2",
         :telfixo => "Telfixo",
         :telcel => "Telcel",
         :sexo => "Sexo"
@@ -29,8 +29,10 @@ RSpec.describe "usuarios/index", type: :view do
   it "renders a list of usuarios" do
     render
     assert_select "tr>td", :text => "Nome".to_s, :count => 2
-    assert_select "tr>td", :text => "Numerosus".to_s, :count => 2
-    assert_select "tr>td", :text => "Cpf".to_s, :count => 2
+    assert_select "tr>td", :text => "Numerosus".to_s, :count => 1
+    assert_select "tr>td", :text => "Numerosus 2".to_s, :count => 1
+    assert_select "tr>td", :text => "Cpf".to_s, :count => 1
+    assert_select "tr>td", :text => "Cpf 2".to_s, :count => 1
     assert_select "tr>td", :text => "email@mail.com".to_s, :count =>1 
     assert_select "tr>td", :text => "email2@mail.com".to_s, :count =>1
     assert_select "tr>td", :text => "password".to_s, :count => 2
