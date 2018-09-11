@@ -1,62 +1,74 @@
-<h2>Sign up</h2>
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - CADASTRAR</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+<div class="w3-container w3-card-4">
+
+
+<!--h2>Sign up</h2-->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= form.label :nome %>
+  <div class="field w3-input">
+    <%= form.label :nome, 'Nome Completo:'  %>
     <%= form.text_field :nome %>
   </div>
 
-  <div class="field">
-    <%= form.label :numerosus %>
+  <div class="field w3-input">
+    <%= form.label :numerosus, 'Número SUS:'   %>
     <%= form.text_field :numerosus %>
   </div>
 
-  <div class="field">
-    <%= form.label :cpf %>
+  <div class="field w3-input">
+    <%= form.label :cpf, 'CPF:'  %>
     <%= form.text_field :cpf %>
   </div>
 
-  <div class="field">
-    <%= form.label :dtanasc %>
+  <div class="field w3-input">
+    <%= form.label :dtanasc, 'Data de Nascimento:'  %>
     <%= form.date_select :dtanasc %>
   </div>
 
-  <div class="field">
-    <%= form.label :telfixo %>
+  <div class="field w3-input">
+    <%= form.label :telfixo, 'Telefone Fixo:'   %>
     <%= form.text_field :telfixo %>
   </div>
 
-  <div class="field">
-    <%= form.label :telcel %>
+  <div class="field w3-input">
+    <%= form.label :telcel, 'Telefone Celular:' %>
     <%= form.text_field :telcel %>
   </div>
 
-  <div class="field">
-    <%= form.label :sexo %>
+  <div class="field w3-input">
+    <%= form.label :sexo, 'Sexo' %>
     <%= form.text_field :sexo %>
   </div>
-  <div class="field">
-    <%= form.label :email %><br />
+  <div class="field w3-input">
+    <%= form.label :email, 'Email:' %><br />
     <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
+  <div class="field w3-input">
+    <%= form.label :password, 'Sua Senha:' %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
     <% end %><br />
     <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
+  <div class="field w3-input">
+    <%= form.label :password_confirmation, 'Confirme a sua senha:' %><br />
     <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Sign up" %>
+    <!-- %= form.submit "Sign up" % -->
+
+    <%= form.submit "Enviar" %>
+
+
   </div>
 <% end %>
 

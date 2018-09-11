@@ -1,44 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - EDITAR USUÁRIO</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+<div class="w3-container w3-card-4">
+
+<!--h2>Editar <%= resource_name.to_s.humanize %></h2-->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
- <div class="field">
-    <%= f.label :nome %>
+ <div class="field w3-input">
+    <%= f.label :nome, 'Nome Completo:'%>
     <%= f.text_field :nome %>
   </div>
 
-  <div class="field">
-    <%= f.label :numerosus %>
+  <div class="field w3-input">
+    <%= f.label :numerosus, 'Número SUS:' %>
     <%= f.text_field :numerosus %>
   </div>
 
-  <div class="field">
-    <%= f.label :cpf %>
+  <div class="field w3-input">
+    <%= f.label :cpf, 'CPF:' %>
     <%= f.text_field :cpf %>
   </div>
 
-  <div class="field">
-    <%= f.label :dtanasc %>
+  <div class="field w3-input">
+    <%= f.label :dtanasc, 'Data de Nascimento:' %>
     <%= f.date_select :dtanasc %>
   </div>
 
-  <div class="field">
-    <%= f.label :telfixo %>
+  <div class="field w3-input">
+    <%= f.label :telfixo, 'Telefone Fixo:' %>
     <%= f.text_field :telfixo %>
   </div>
 
-  <div class="field">
-    <%= f.label :telcel %>
+  <div class="field w3-input">
+    <%= f.label :telcel, 'Telefone Celular:' %>
     <%= f.text_field :telcel %>
   </div>
 
-  <div class="field">
-    <%= f.label :sexo %>
+  <div class="field w3-input">
+    <%= f.label :sexo, 'Sexo' %>
     <%= f.text_field :sexo %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
+ <div class="field w3-input">
+    <%= f.label :email, 'Email:' %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -46,8 +53,8 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div class="field w3-input">
+    <%= f.label :password, 'Sua Nova Senha:' %> <i>(Deixe em branco se você não desejar alterá-la)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -55,23 +62,25 @@
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="field w3-input">
+    <%= f.label :password_confirmation, 'Confirme a sua Nova Senha:' %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div class="field w3-input">
+    <%= f.label :current_password, 'Sua Senha ATUAL:' %> <i>(Nós precisamos de sua senha atual para confirmar as suas alterações)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Atualizar" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+  <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+  <h2>Cancelar Conta</h2>
+  <p>Não está satisfeito? <%= button_to "Cancelar minha Conta", registration_path(resource_name), data: { confirm: "Are you sure?" },
+     method: :delete %></p>
+ </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to "Voltar", :back %>
