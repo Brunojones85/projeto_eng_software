@@ -40,7 +40,17 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
-  config.action_mailer.default_url_options = { :host => 'engsoftware2018.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://engsoftware2018.herokuapp.com' }
+  config.action_mailer.smtp_settings = {
+    :address => "smtp-mail.outlook.com",
+    :port => "587",
+    :domain => "https://engsoftware2018.herokuapp.com",
+    :user_name => "sin5005@outlook.com",
+    :password => "2018 engenharia",
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :ssl =>true
+  } 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
