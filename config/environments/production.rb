@@ -42,15 +42,15 @@ Rails.application.configure do
   config.active_storage.service = :local
   config.action_mailer.default_url_options = { :host => 'https://engsoftware2018.herokuapp.com' }
   config.action_mailer.smtp_settings = {
-    :address => "smtp.mailgun.org",
-    :port => "2525",
-    :domain => "sandboxb9f1e72936704dfeb825d6dd59d868eb.mailgun.org",
-    :user_name => "postmaster@sandboxb9f1e72936704dfeb825d6dd59d868eb.mailgun.org",
-    :password => "c70e248ed2914e51dc001c33d2e22139",
+    :address => "smtp-mail.outlook.com",
+    :port => "587",
+    :domain => "outlook.com",
+    :user_name => "sin5005@outlook.com",
+    :password => "2018 engenharia",
     :authentication => :plain,
     :enable_starttls_auto => true,
-    :ssl =>false
-  }
+    :ssl =>true
+  } 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
