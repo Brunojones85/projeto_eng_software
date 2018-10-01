@@ -42,9 +42,10 @@ Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 #end
 
 #essa task cria a task com nome cucumber
-#Cucumber::Rake::Task.new do |t|
-#  #PRECISA ENTENDER O QUE É ESSE PROFILE
-#  t.profile = 'ruby' if Cucumber::RUBY
-#end
+Cucumber::Rake::Task.new(:features)  do |t|
+  #PRECISA ENTENDER O QUE É ESSE PROFILE
+  #  t.profile = 'ruby' if Cucumber::RUBY
+  t.cucumber_opts = %w{--format progress}
+end
 
 

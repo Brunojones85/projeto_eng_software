@@ -11,6 +11,7 @@ vendored_cucumber_bin = Dir["#{Rails.root}/vendor/{gems,plugins}/cucumber*/bin/c
 $LOAD_PATH.unshift(File.dirname(vendored_cucumber_bin) + '/../lib') unless vendored_cucumber_bin.nil?
 
 begin
+  puts "## [cubumer.rake] Running lib/tasks/cucumber.rake"
   require 'cucumber/rake/task'
 
   namespace :cucumber do

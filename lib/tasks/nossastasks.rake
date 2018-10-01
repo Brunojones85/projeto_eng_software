@@ -1,7 +1,7 @@
 namespace :nossastasks do
-  desc "Popula Tabela de Usuarios com usuario padrao admin senha admin123"
+  desc "## [nossastasks.rake] Popula Tabela de Usuarios com usuario padrao admin senha admin123"
   task cria_usuario_admin: :environment do
-    puts "Rodando nossaTak cria_usuario_admin"
+    #puts "## [nossastasks.rake] Rodando Nossas Task 'cria_usuario_admin'"
       Usuario.create(
         nome: 'Admin',
         numerosus: 123,
@@ -16,9 +16,9 @@ namespace :nossastasks do
         updated_at:Time.now.to_datetime);    
     end
 
-  desc "NossaTaks Popula Tabela com usuarios aleatorios para Testes conforme"
+  desc "## [nossastasks.rake] NossaTaks Popula Tabela com usuarios aleatorios para Testes conforme"
   task popula_usuarios_aleatorios_para_testes: :environment do
-    puts "Rodando nossaTask popula_usuarios_aleatorios_para_testes"
+    #puts "## [nossastaks.rake] Rodando Nossa Task 'popula_usuarios_aleatorios_para_testes'"
     if Rails.env.test?
       10.times do |i|
         Usuario.create(
@@ -39,9 +39,9 @@ namespace :nossastasks do
     end
   end
 
-  desc "NossaTaks Popula Tabela de Usuarios para tesde do cenario: Login com credenciais validas"
+  desc "## [nossastasks.rake] NossaTaks Popula Tabela de Usuarios para tesde do cenario: Login com credenciais validas"
   task popula_usuarios_testar_cenario_login_com_credenciais_validas: :environment do
-    puts "Rodando nossaTask popula_usuarios_testar_cenario_login_com_credenciais_validas"
+    #puts "Rodando nossaTask popula_usuarios_testar_cenario_login_com_credenciais_validas"
     if Rails.env.test?
 
       puts " Criando usuario Denise"
@@ -114,7 +114,8 @@ namespace :nossastasks do
         created_at: Time.now.to_datetime,
         updated_at: Time.now.to_datetime);
     else
-       puts "Essa task so pode rodar no Rails.env.test"
+      puts "## [nossastasks.rake] Essa task so pode rodar no Rails.env.test"
+      puts "## [nossastasks.rake] Qual task? A NossaTaks Popula Tabela de Usuarios para tesde do cenario: Login com credenciais validas"
     end
   end
   

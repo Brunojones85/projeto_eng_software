@@ -6,52 +6,13 @@
 #Given("I exist as a user") do
 #  cria_usuario
 #end
+require_relative "steps_helper"
 
-def cria_convidado
-  @convidado ||= {
-    :nome => "admin", :email => "admin@admin",
-    :numerosus => "1234567", :cpf => "0987",
-    :password => "123456", :password_confirmation => "123456" }
-end
-
-def find_user
-  @usuario ||= User.where(:email => @visitor[:email]).first
-end
-
-def create_unconfirmed_user
-  cria_convidado
-  exclui_usuario
-  sign_up
-  visit '/users/sign_out'
-end
-
-def cria_usuario
-  cria_convidado
-  exclui_usuario
-  @usuario = FactoryBot.create(:usuario, @convidado)
-end
-
-def exclui_usuario
-  @usuario ||= Usuario.where(:email => @convidado[:email]).first
-  @usuario.destroy unless @usuario.nil?
-end
-
-#Ver ser util para caso de teste de registrar usuario
-def sign_up
-  exclui_usuario
-  visit '/users/sign_up'
-  fill_in "user_name", :with => @visitor[:name]
-  fill_in "user_email", :with => @visitor[:email]
-  fill_in "user_password", :with => @visitor[:password]
-  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
-  click_button "Sign up"
-  find_user
-end
 
 def fazer_login
-  visit '/usuarios/sign_in'
-  fill_in "Email", :with => @convidado[:email]
-  fill_in "Password", :with => @convidado[:password]
+  visit '/usuarios/sign_in'  
+  fill_in "usuario_email", :with => @convidado[:email]
+  fill_in "usuario_password", :with => @convidado[:password]
   find(:xpath, "/html/body/div/div/form/button").click
 end
 
