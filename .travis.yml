@@ -14,9 +14,7 @@ before_script:
 
 script:
        - bundle exec rspec spec --color --format doc
-       - cucumber features/login_valido.feature
-       - cucumber features/login.feature
-       - cucumber features/cadastro_de_usuario.feature
+       - rake cucumber 
 
 # whitelist
 branches:

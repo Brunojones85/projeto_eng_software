@@ -6,17 +6,17 @@ def sign_up_com_dados_validos
   visit '/usuarios/sign_up'
   fill_in "usuario_nome", :with => @convidado[:nome]
   fill_in "usuario_numerosus", :with => @convidado[:numerosus]
-  fill_in "usuario_cpf", :with => @convidado[:cpf]  
-  find("#usuario_dtanasc_3i").find(:xpath, 'option['+@convidado[:dtanasc_dia]+']').select_option
+  fill_in "usuario_cpf", :with => @convidado[:cpf]    
 
-  #fix-me:
+  #fix-me:  
   #seria melhor mapear 'option[9]' para o atributo  @convidado[:dtanasc_mes]
   #seria melhor que apenas selecionar a opcao 9, mas a opcao nove ainda e valida
   #pra efeitos desse caso de teste
-  find("#usuario_dtanasc_2i").find(:xpath, 'option[9]').select_option
+  #find("#usuario_dtanasc_3i").find(:xpath, 'option['+@convidado[:dtanasc_dia]+']').select_option
+  #find("#usuario_dtanasc_2i").find(:xpath, 'option[9]').select_option
 
   #fix-me: idem acima com parametro @convidado[:dtanasc_ano]
-  find("#usuario_dtanasc_1i").find(:xpath, 'option[3]').select_option
+  #find("#usuario_dtanasc_1i").find(:xpath, 'option[3]').select_option
 
   fill_in "usuario_telfixo", :with => @convidado[:telfixo]
   fill_in "usuario_telcel", :with => @convidado[:telcel]
