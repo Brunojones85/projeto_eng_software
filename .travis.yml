@@ -14,7 +14,7 @@ before_script:
 
 script:
        - bundle exec rspec spec --color --format doc
-       - rake
+       - bundle exec rake
 
 # whitelist
 branches:
