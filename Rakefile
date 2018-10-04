@@ -18,7 +18,7 @@ Rake::Task['db:migrate'].execute
 Rake::Task['nossastasks:cria_usuario_admin'].execute
 Rake::Task['nossastasks:popula_usuarios_testar_cenario_login_com_credenciais_validas'].execute
 Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
-
+Rake::Task['cucumber:all']
 
 #task default: ["nossastasks:prepara_db" "nossastasks:popula_usuarios" "nossastasks:popula_usuarios_para_testes"]
 #task default: [":rodaNossasTasks_PreparaDb"]
@@ -45,7 +45,7 @@ Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 Cucumber::Rake::Task.new(:features)  do |t|
   #PRECISA ENTENDER O QUE É ESSE PROFILE
   #  t.profile = 'ruby' if Cucumber::RUBY
-  t.cucumber_opts = %w{--format progress}
+  #t.cucumber_opts = %w{--format progress}
 end
 
 
