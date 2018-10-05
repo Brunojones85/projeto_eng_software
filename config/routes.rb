@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  
+  resources :especialidades
   devise_for :usuarios #do
   resources :usuarios
 #    get 'sign_out', to: 'devise/sessions#destroy'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 #
 
  # Rails.application.routes.draw do
+  resources :especialidades
   #    devise_for :users, controllers: {
    #     sessions: 'users/sessions'
     #  }
