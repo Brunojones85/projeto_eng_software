@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Especialidade, type: :model do
+describe Especialidade  do
   pending "add some examples to (or delete) #{__FILE__}"
 end
