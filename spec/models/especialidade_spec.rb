@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 describe Especialidade  do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "é valido que o nome da especialiade é valido"
+  it "'valido que o campo descrição é valido" 
 end
