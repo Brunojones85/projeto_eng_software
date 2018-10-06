@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe Especialidade  do
-  it "é valido que o nome da especialiade é valido"
-  it "'valido que o campo descrição é valido" 
+  it "é valido quando o campo Nome é preenchido" do 
+     espec = Especialidade.new(Nome:'teste')
+     expect( espec).to be_valid
+  end 
+
+       
+
+   
 end
