@@ -1,24 +1,161 @@
 <!DOCTYPE html>
 <html>
-    <div id="user_nav">
-         <% if usuario_signed_in? %>
 
-            Seja bem-vindo <%= current_usuario.nome %> !
-
-             <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
-             <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
-
-         <% else %>
-            Seja bem-vindo ! <%= link_to 'Criar uma nova conta', new_usuario_registration_path %> ou <%= link_to 'Entrar', new_usuario_session_path %>
-        <% end %>
+    <div class="home" id="home">       
     </div>
 
-        <div class="home" id="home">
-            <div class="header">
-                <a href="#home" class="item-menu">Home</a>
-                <a href="#sobre" class="item-menu">Sobre</a>
-                <a href="#item-menu">Contato</a>
-            </div>
-        </div>
+
+
+<title>HOME</title>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+
+<style>
+
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+</style>
+<body>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+
+	<div id="user_nav">
+ 		<p></p>
+		 <% if usuario_signed_in? %>
+
+		        Seja bem-vindo <%= current_usuario.nome %> !
+
+		     <%= link_to "Agendar uma Consulta" %>
+		     <%= link_to "Cancelar uma Consulta" %>
+		     <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
+		     <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
+
+		 <% else %>
+		    Seja bem-vindo! <%= link_to 'Criar uma nova conta', new_usuario_registration_path %> ou <%= link_to 'Entrar', 				new_usuario_session_path %>
+
+		<% end %>
+
+	</div>
+
+
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">SOBRE O SUS</a>
+
+      <!-- 
+	<a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i>CRIAR CONTA</a>
+      	<a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i>ENTRAR</a>
+      -->
+
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-usd"></i>CONTATO</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">SOBRE O SUS</a>
+
+<!-- 
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">CRIAR CONTA</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">ENTRAR</a>
+-->
+
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTATO</a>
+  
+</nav>
+
+
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">SOBRE O SISTEMA ÚNICO DE SAÚDE - SUS</h3>
+  <p class="w3-center w3-large">Principais características</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Responsabilidade</p>
+      <p>O Ministério da Saúde é o órgão do Poder Executivo Federal responsável pela organização e elaboração de planos e políticas públicas voltados para a promoção, a prevenção e a assistência à saúde dos brasileiros.
+      É função do Ministério dispor de condições para a proteção e recuperação da saúde da população, reduzindo as enfermidades, controlando as doenças endêmicas e parasitárias e melhorando a vigilância à saúde, dando, assim, mais qualidade de vida ao brasileiro.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Missão</p>
+      <p>“Promover a saúde da população mediante a integração e a construção de parcerias com os órgãos federais, as unidades da Federação, os municípios, a iniciativa privada e a sociedade, contribuindo para a melhoria da qualidade de vida e para o exercício da cidadania"</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Design</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Suporte</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTATO</h3>
+  <h2><strong>Ouvidoria-Geral do SUS</strong></h2>
+  <p><strong>Telefone:</strong><span> Disque Saúde 136 (ligação gratuita)</span></p>
+  <p><strong>Atendimento Presencial:<br /></strong><br />Ministério da Saúde - Esplanada dos Ministérios, Bloco G, Térreo; Brasília/DF - CEP: 70058-900.<br />Segunda a sexta-feira, das 8h às 18h.</p>
+ <!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>IR PARA O INÍCIO</a>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+
+<script>
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+</body>
+</html>
 
 
