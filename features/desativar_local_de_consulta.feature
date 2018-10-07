@@ -7,6 +7,7 @@ Eu quero desativar um local de consulta no cadastro
 
 Cenário: Desativar de consulta com sucesso (Cenário Feliz)
 Dado que eu estou logado
+E existem locais cadastrados
 Quando acesso a página de listagem de locais de consulta
-E escolho desativar
-Então eu não vou conseguir ver o local na página de listagem de locais de consulta
+E escolho desativar para um determinado registro
+Então eu não vou conseguir mais ver esse registro na página de listagem de locais de consulta
