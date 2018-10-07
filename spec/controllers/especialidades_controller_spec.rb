@@ -29,11 +29,16 @@ RSpec.describe EspecialidadesController, type: :controller do
   # Especialidade. As you add validations to Especialidade, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { 
+      Nome:"Cardiologista" , 
+      Descricao:"Médico especialista"
+    }
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+  let(:invalid_attributes) { 
+    {  
+       Descricao:"Teste sem a propriedade nome"
+    } 
   }
 
   # This should return the minimal set of values that should be in the session
