@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
- 
+
+  resources :locais
   resources :especialidades
   devise_for :usuarios #do
   resources :usuarios
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 #
 
  # Rails.application.routes.draw do
-  resources :especialidades
+  resources :locais
   #    devise_for :users, controllers: {
    #     sessions: 'users/sessions'
     #  }

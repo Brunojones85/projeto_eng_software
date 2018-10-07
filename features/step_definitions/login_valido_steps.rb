@@ -8,14 +8,6 @@
 #end
 require_relative "steps_helper"
 
-
-def fazer_login
-  visit '/usuarios/sign_in'  
-  fill_in "usuario_email", :with => @convidado[:email]
-  fill_in "usuario_password", :with => @convidado[:password]
-  find(:xpath, "/html/body/div/div/form/button").click
-end
-
 Given("Eu sou um usuario existente") do
   cria_usuario
 end

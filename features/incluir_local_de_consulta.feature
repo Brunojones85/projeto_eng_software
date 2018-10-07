@@ -10,3 +10,10 @@ Dado que eu estou logado
 Quando acesso a página de cadastro de local de consulta
 E faço a submissão do formulário com dados válidos
 Então eu vou conseguir ver o novo local na página de listagem de locais de consultas
+
+
+Cenário: Erro ao inserir local de consulta inválido (Cenário Triste)
+Dado que eu estou logado
+Quando acesso a página de cadastro de local de consulta
+E faço a submissão do formulário com dados inválidos
+Então eu vou visualizar uma mensagem de erro

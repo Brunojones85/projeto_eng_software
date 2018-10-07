@@ -42,3 +42,9 @@ def exclui_usuario
   @usuario.destroy unless @usuario.nil?
 end
 
+def fazer_login
+  visit '/usuarios/sign_in'
+  fill_in "usuario_email", :with => @convidado[:email]
+  fill_in "usuario_password", :with => @convidado[:password]
+  find(:xpath, "/html/body/div/div/form/button").click
+end
