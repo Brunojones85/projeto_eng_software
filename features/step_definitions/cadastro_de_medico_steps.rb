@@ -6,9 +6,9 @@ def sign_up_com_dados_validos
   visit '/usuarios/sign_up'
   fill_in "usuario_nome", :with => @convidado[:nome]
   fill_in "usuario_numerosus", :with => @convidado[:numerosus]
-  fill_in "usuario_cpf", :with => @convidado[:cpf]    
+  fill_in "usuario_cpf", :with => @convidado[:cpf]
 
-  #fix-me:  
+  #fix-me:
   #seria melhor mapear 'option[9]' para o atributo  @convidado[:dtanasc_mes]
   #seria melhor que apenas selecionar a opcao 9, mas a opcao nove ainda e valida
   #pra efeitos desse caso de teste
@@ -21,13 +21,13 @@ def sign_up_com_dados_validos
   fill_in "usuario_telfixo", :with => @convidado[:telfixo]
   fill_in "usuario_telcel", :with => @convidado[:telcel]
   fill_in "usuario_sexo", :with => @convidado[:sexo]
-  
+
   fill_in "usuario_email", :with => @convidado[:email]
   fill_in "usuario_password", :with => @convidado[:password]
   fill_in "usuario_password_confirmation", :with => @convidado[:password_confirmation]
 
   find(:xpath,"/html/body/div/div/form/div[11]/input").click
-  
+
   find_user
 end
 
@@ -40,22 +40,33 @@ end
 
 
 Given("Eu sou o Administrador") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(1==1)
 end
 
 Given("Eu estou logado") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(1==1)
 end
 
 When("Eu acesso pagina de criar um novo medico") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(1==1)
 end
 
 Then("na pagina principal recebo a mensagem de Medico cadastrado com sucesso!") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(1==1)
 end
 
 Given("Eu sou Administrador") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(1==1)
+end
+Quando("envio o formulario de medico com dados validos") do
+  expect(1==1)
 end
 
+Quando("envio o form de novo medico com todos os campos em branco") do
+  expect(1==1)
+end
+
+
+Então("recebo mensagems de erro na página de cadastro de médico para os seguintes campos:") do |table|
+  expect(1==1)
+end
