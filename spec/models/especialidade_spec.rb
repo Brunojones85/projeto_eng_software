@@ -7,7 +7,7 @@ describe Especialidade  do
   end 
 
   it "Criar uma especialiade" do 
-     espec = Especialidade.new(Nome:'teste2',Especialidade:"Descricao de uma especialidade")
+     espec = Especialidade.new(Nome:'teste2',Descicao:"Descricao de uma especialidade")
      expect( espec).to be_valid
   end  
  
