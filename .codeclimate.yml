@@ -1,4 +1,15 @@
 exclude_patterns:
 - "public/"
-- "app/assets/" 
-
+- "app/assets/"
+- "spec/routing/usuarios_routing_spec.rb"
+- "spec/routing/especialidades_routing_spec.rb"
+- "spec/routing/locais_routing_spec.rb"
+- "spec/views/locais/show.html.erb_spec.rb"
+- "spec/views/usuarios/show.html.erb_spec.rb"
+- "spec/views/usuarios/edit.html.erb_spec.rb"
+- "spec/views/locais/edit.html.erb_spec.rb"
+- "spec/views/locais/index.html.erb_spec.rb"
+- "spec/views/usuarios/index.html.erb_spec.rb"
+- "spec/controllers/especialidades_controller_spec.rb"
+- "spec/controllers/locais_controller_spec.rb"
+- "spec/controllers/usuarios_controller_spec.rb"
