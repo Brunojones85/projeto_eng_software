@@ -1,11 +1,11 @@
-Feature: Login Valido
+#language:pt
+Funcionalidade: Login Valido
   Testa Funcionalide de Login Valido (Exemplo:https://github.com/RailsApps/rails3-devise-rspec-cucumber/blob/master/features/users/sign_in.feature)
 
-  Scenario: User signs in successfully
-    Given Eu sou um usuario existente
-    And Eu nao estou logado
-    When Eu logo com credenciais validas
-    Then Eu vejo uma msg login realizado com sucesso
-    When Eu entro na pagina inicial
-    Then Eu devo estar logado
-    
+  Cenário: Usuario faz login com sucesso
+    Dado Eu sou um usuario existente
+    E Eu nao estou logado
+    Quando Eu logo com credenciais validas
+    Então Eu vejo uma msg login realizado com sucesso
+    Quando Eu entro na pagina inicial
+    Então Eu devo estar logado

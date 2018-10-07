@@ -1,1 +1,2 @@
-features/cadastro_de_medico.feature:4:11
+features/cadastro_de_medico.feature:5:12
+features/incluir_local_de_consulta.feature:8
