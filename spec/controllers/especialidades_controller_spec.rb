@@ -37,7 +37,7 @@ RSpec.describe EspecialidadesController, type: :controller do
 
   let(:invalid_attributes) {
     {
-      
+      Nome:nil,
        Descricao:"Teste sem a propriedade nome"
     }
   }
@@ -124,7 +124,7 @@ RSpec.describe EspecialidadesController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         especialidade = Especialidade.create! valid_attributes
         put :update, params: {id: especialidade.to_param, especialidade: invalid_attributes}, session: valid_session
-        expect(response.status).to eq(302)
+        expect(response.status).to eq(200)
       end
     end
   end
