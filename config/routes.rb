@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :medicos
   resources :locais
   resources :especialidades
   devise_for :usuarios #do
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 #
 
  # Rails.application.routes.draw do
+  resources :medicos
   resources :locais
   #    devise_for :users, controllers: {
    #     sessions: 'users/sessions'

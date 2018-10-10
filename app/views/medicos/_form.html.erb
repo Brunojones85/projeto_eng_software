@@ -1,0 +1,71 @@
+<%= form_with(model: medico, local: true) do |form| %>
+  <% if medico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>
+
+      <ul>
+      <% medico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crm %>
+    <%= form.text_field :crm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local %>
+    <%= form.text_field :local %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :celular %>
+    <%= form.text_field :celular %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexo %>
+    <%= form.text_field :sexo %>
+  </div>
+
+  <div class="field">
+      <%= form.label :situacao %>
+      <%= form.text_field :situacao %>
+  </div>
+
+  
+  <%= form.fields_for :especialidades do |especialidade_fields| %>
+      <% if especialidade_fields.object != nil? %>
+          Esp: <%= especialidade_fields.text_field :Nome %>
+      <% end %>
+  <% end %>
+
+  <%if @especialidade != nil %>
+  <%= @especialidade.each do |esp| %>
+      <%= esp.Nome %>  <%= check_box_tag esp.Nome, esp.id, checked = false %><br></br>
+  <% end %>
+  <% end %>
+
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
