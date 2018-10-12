@@ -6,7 +6,7 @@
 require 'rubygems'
 require 'bundler' 
 require 'cucumber'
-require 'cucumber/rake/task'
+#require 'cucumber/rake/task'
 #require 'test'
 require_relative 'config/application'
 
