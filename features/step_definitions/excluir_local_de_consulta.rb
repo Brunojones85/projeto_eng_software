@@ -4,6 +4,8 @@ E("existem locais cadastrados") do
   visit "/locais/new"
   cria_local_valido
   preencherCamposLocal(@localvalido)
+  find('#estado_id').find(:xpath, 'option[1]').select_option
+  find('#local_cidade_id').find(:xpath, 'option[1]').select_option
   find(:xpath, "/html/body/form/div[10]/input").click
 end
 

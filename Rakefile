@@ -4,7 +4,7 @@
 # coding: iso-8859-1
 
 require 'rubygems'
-require 'bundler' 
+require 'bundler'
 require 'cucumber'
 #require 'cucumber/rake/task'
 #require 'test'
@@ -13,12 +13,12 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-Rake::Task['db:drop'].execute
-Rake::Task['db:create'].execute
-Rake::Task['db:migrate'].execute
-Rake::Task['nossastasks:cria_usuario_admin'].execute
-Rake::Task['nossastasks:popula_usuarios_testar_cenario_login_com_credenciais_validas'].execute
-Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
+#Rake::Task['db:drop'].execute
+#Rake::Task['db:create'].execute
+#Rake::Task['db:migrate'].execute
+#Rake::Task['nossastasks:cria_usuario_admin'].execute
+#Rake::Task['nossastasks:popula_usuarios_testar_cenario_login_com_credenciais_validas'].execute
+#Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 #Rake::Task['cucumber:all']
 
 #task default: ["nossastasks:prepara_db" "nossastasks:popula_usuarios" "nossastasks:popula_usuarios_para_testes"]
@@ -38,7 +38,7 @@ Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 #end
 
 
-#task :MensagemFromRakefile do  
+#task :MensagemFromRakefile do
 #  puts "MensagemFromRakefile: As taks que serao executadas na seguinte ordem: db:seed, cucumber"
 #end
 
@@ -48,5 +48,3 @@ Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 #  #  t.profile = 'ruby' if Cucumber::RUBY
 #  #t.cucumber_opts = %w{--format progress}
 #end
-
-

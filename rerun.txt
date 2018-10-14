@@ -1,0 +1,3 @@
+features/desativar_local_de_consulta.feature:7
+features/excluir_local_de_consulta.feature:8
+features/incluir_local_de_consulta.feature:8

@@ -2,7 +2,6 @@
   <% if local.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(local.errors.count, "error") %> prohibited this local from being saved:</h2>
-
       <ul>
       <% local.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -35,16 +34,15 @@
     <%= form.label :numero %>
     <%= form.text_field :numero %>
   </div>
-
   <div class="field">
-    <%= form.label :estado %>
-    <%= form.text_field :estado %>
-  </div>
+<%= label_tag :estado %>
+<%= collection_select(:estado, :id, Estado.all, :id, :nome, {:prompt => true})  %>
+</div>
 
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
+<div class="field">
+   <%= form.label :cidade_id %><br />
+   <%= form.collection_select( :cidade_id, Cidade.where(:estado_id => @estado).order(:nome), :id, :nome,  {:prompt => true}) %>
+</div>
 
   <div class="field">
     <%= form.label :bairro %>
@@ -60,3 +58,22 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+   $("#estado_id").change(function() {
+      getCitiesByState("id="+$("#estado_id").val());
+    });
+  });
+
+  function getCitiesByState(id) {
+    $.getJSON("/carrega_cidade", id, function(j) {
+      var options = '<option value="">Por favor, selecione</option>';
+      $.each(j.cty, function(i, item) {
+        options += '<option value="' + item.id + '">' + item.n + '</option>';
+      });
+      $("#local_cidade_id").html(options);
+    });
+  }
+</script>

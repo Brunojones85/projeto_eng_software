@@ -89,8 +89,6 @@ def preencherCamposLocal(objeto)
   fill_in "local_nome", :with => objeto[:nome]
   fill_in "local_cep", :with => objeto[:cep]
   fill_in "local_rua", :with =>objeto[:rua]
-  fill_in "local_estado", :with => objeto[:estado]
-  fill_in "local_cidade", :with => objeto[:cidade]
   fill_in "local_bairro", :with => objeto[:bairro]
   fill_in "local_numero", :with => objeto[:numero]
   fill_in "local_telefone", :with => objeto[:telefone]
@@ -104,7 +102,6 @@ def cria_local_valido
     :cep => Faker::Address.zip_code,
     :rua => Faker::Address.street_name,
     :numero => Faker::Address.building_number,
-    :estado => Faker::Address.state_abbr,
     :cidade => Faker::Address.city ,
     :bairro => Faker::Address.community,
     :telefone => Faker::PhoneNumber.phone_number,
@@ -118,7 +115,6 @@ def cria_local_invalido
     :cep => nil,
     :rua => nil,
     :numero => nil,
-    :estado => nil,
     :cidade => nil,
     :bairro => nil,
     :telefone => nil,

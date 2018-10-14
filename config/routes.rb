@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :medicos
   resources :locais
+  get "/carrega_cidade" , to: "locais#carrega_cidade"
   resources :especialidades
   devise_for :usuarios #do
   resources :usuarios
