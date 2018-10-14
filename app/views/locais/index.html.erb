@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Nome</th>
+      <th>Ativo</th>
       <th>Cep</th>
       <th>Rua</th>
       <th>Numero</th>
@@ -21,6 +22,7 @@
     <% @locais.each do |local| %>
       <tr>
         <td><%= local.nome %></td>
+        <td><%= local.ativo %></td>
         <td><%= local.cep %></td>
         <td><%= local.rua %></td>
         <td><%= local.numero %></td>

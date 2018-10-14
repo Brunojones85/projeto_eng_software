@@ -11,7 +11,8 @@ RSpec.describe "locais/index", type: :view do
         :estado => "Estado",
         :cidade => "Cidade",
         :bairro => "Bairro",
-        :telefone => "Telefone"
+        :telefone => "Telefone",
+        :ativo => true
       ),
       Local.create!(
         :nome => "Hospital 2",
@@ -21,7 +22,8 @@ RSpec.describe "locais/index", type: :view do
         :estado => "Estado",
         :cidade => "Cidade",
         :bairro => "Bairro",
-        :telefone => "Telefone"
+        :telefone => "Telefone",
+        :ativo => true
       )
     ])
   end
