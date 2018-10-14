@@ -20,6 +20,7 @@ class MedicosController < ApplicationController
 
   # GET /medicos/1/edit
   def edit
+    @especialidade = Especialidade.all
   end
 
   # POST /medicos
@@ -54,6 +55,15 @@ class MedicosController < ApplicationController
   def update
     respond_to do |format|
       if @medico.update(medico_params)
+
+        @params = params #consultando parametros
+        @params.each do |p|
+          if p[0].start_with?("esp");
+            esp = Especialidade.find(p[1]);
+            @medico.especialidades << esp
+          end                
+        end
+
         format.html { redirect_to @medico, notice: 'Medico was successfully updated.' }
         format.json { render :show, status: :ok, location: @medico }
       else
