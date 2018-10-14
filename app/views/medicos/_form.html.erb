@@ -51,6 +51,7 @@
       <%= form.text_field :situacao %>
   </div>
 
+  
   <span>Especialidades deste Medico</span></br>
   <% if @medico.especialidades.length > 0 %>
       <% @medico.especialidades.each do | e | %>
@@ -58,11 +59,12 @@
       <% end %>
       <hr></hr>
   <% else %>
-      <span>Este medico nao tem especialidade:</span>
+      <span>Este medico ainda nao tem especialidade:</span>
       <hr></hr>
   <% end %>
-      
-
+  
+  <hr></hr>
+  
   <span>Especialidades Existentes:</span><br>
   <%= form.fields_for :especialidades do |especialidade_fields| %>
       <% if especialidade_fields.object != nil? %>
