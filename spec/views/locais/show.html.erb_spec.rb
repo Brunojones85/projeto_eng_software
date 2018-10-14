@@ -10,7 +10,8 @@ RSpec.describe "locais/show", type: :view do
       :estado => "Estado",
       :cidade => "Cidade",
       :bairro => "Bairro",
-      :telefone => "Telefone"
+      :telefone => "Telefone",
+      :ativo => true
     ))
   end
 

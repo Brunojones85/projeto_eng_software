@@ -30,28 +30,30 @@ RSpec.describe LocaisController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-    nome:  "Hospital X",
-    cep: Faker::Address.zip_code,
-    rua: Faker::Address.street_name,
-    numero: Faker::Address.building_number,
-    estado: Faker::Address.state_abbr,
-    cidade: Faker::Address.city ,
-    bairro: Faker::Address.community,
-    telefone: Faker::PhoneNumber.phone_number
-  }
+      nome:  "Hospital X",
+      cep: Faker::Address.zip_code,
+      rua: Faker::Address.street_name,
+      numero: Faker::Address.building_number,
+      estado: Faker::Address.state_abbr,
+      cidade: Faker::Address.city ,
+      bairro: Faker::Address.community,
+      telefone: Faker::PhoneNumber.phone_number,
+      ativo: true
+    }
   }
 
   let(:invalid_attributes) {
     {
-    nome:  nil,
-    cep: nil,
-    rua: nil,
-    numero: nil,
-    estado: nil,
-    cidade: nil,
-    bairro: nil,
-    telefone: nil
-  }
+      nome:  nil,
+      cep: nil,
+      rua: nil,
+      numero: nil,
+      estado: nil,
+      cidade: nil,
+      bairro: nil,
+      telefone: nil,
+      ativo: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -116,15 +118,16 @@ RSpec.describe LocaisController, type: :controller do
     context "with valid params" do
       let(:new_attributes) {
         {
-        nome:  "Hospital Y",
-        cep: Faker::Address.zip_code,
-        rua: Faker::Address.street_name,
-        numero: Faker::Address.building_number,
-        estado: Faker::Address.state_abbr,
-        cidade: Faker::Address.city ,
-        bairro: Faker::Address.community,
-        telefone: Faker::PhoneNumber.phone_number
-      }
+          nome:  "Hospital Y",
+          cep: Faker::Address.zip_code,
+          rua: Faker::Address.street_name,
+          numero: Faker::Address.building_number,
+          estado: Faker::Address.state_abbr,
+          cidade: Faker::Address.city ,
+          bairro: Faker::Address.community,
+          telefone: Faker::PhoneNumber.phone_number,
+          ativo: true
+        }
       }
 
       it "updates the requested local" do

@@ -10,7 +10,8 @@ RSpec.describe "locais/new", type: :view do
       :estado => "MyString",
       :cidade => "MyString",
       :bairro => "MyString",
-      :telefone => "MyString"
+      :telefone => "MyString",
+      :ativo => true
     ))
   end
 
