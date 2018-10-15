@@ -69,6 +69,6 @@ class LocaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def local_params
-      params.require(:local).permit(:nome, :cep, :rua, :numero, :estado, :cidade, :bairro, :telefone)
+      params.require(:local).permit(:nome, :cep, :rua, :numero, :estado, :cidade, :bairro, :telefone,:ativo)
     end
 end

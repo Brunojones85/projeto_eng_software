@@ -52,6 +52,20 @@
   </div>
 
   
+  <span>Especialidades deste Medico</span></br>
+  <% if @medico.especialidades.length > 0 %>
+      <% @medico.especialidades.each do | e | %>
+          <li><%= e.Nome %></li>
+      <% end %>
+      <hr></hr>
+  <% else %>
+      <span>Este medico ainda nao tem especialidade:</span>
+      <hr></hr>
+  <% end %>
+  
+  <hr></hr>
+  
+  <span>Especialidades Existentes:</span><br>
   <%= form.fields_for :especialidades do |especialidade_fields| %>
       <% if especialidade_fields.object != nil? %>
           Esp: <%= especialidade_fields.text_field :Nome %>
@@ -59,11 +73,11 @@
   <% end %>
 
   <%if @especialidade != nil %>
-  <%= @especialidade.each do |esp| %>
-      <%= esp.Nome %>  <%= check_box_tag esp.Nome, esp.id, checked = false %><br></br>
+      <%= @especialidade.each do |esp| %>          
+          <%= esp.Nome %>  <%= check_box_tag  "esp_" + esp.Nome, esp.id, checked = false %><br></br>
+      <% end %>
   <% end %>
-  <% end %>
-
+  
   
   <div class="actions">
     <%= form.submit %>
