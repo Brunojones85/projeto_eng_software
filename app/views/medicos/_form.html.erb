@@ -73,8 +73,8 @@
   <% end %>
 
   <%if @especialidade != nil %>
-      <%= @especialidade.each do |esp| %>
-          <%= esp.Nome %>  <%= check_box_tag esp.Nome, esp.id, checked = false %><br></br>
+      <%= @especialidade.each do |esp| %>          
+          <%= esp.Nome %>  <%= check_box_tag  "esp_" + esp.Nome, esp.id, checked = false %><br></br>
       <% end %>
   <% end %>
   

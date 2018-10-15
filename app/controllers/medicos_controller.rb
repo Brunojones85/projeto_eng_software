@@ -26,17 +26,20 @@ class MedicosController < ApplicationController
   # POST /medicos
   # POST /medicos.json
   def create    
-    puts "running def create..."
-
     @medico = Medico.new(medico_params)
     @params = params #consultando parametros
+    #PESSOAL, quando o botao do create new e pressionado precisamos dos parametros
+    #pra poder ver se vieram especialidades no parametro.
+    #la no form tem um esquema que prefixa com esp_ todas as especialidades checadas
+    #entao a gente pega os parametros que comacam com esp_ e o valor do parametro e
+    #justamente o id da especialidade.
+    #Entao a gente usa esse id da especialidade pra dar um find e obter o registro dessa especialidade
     @params.each do |p|
-      if p[0].start_with?("esp");
-        puts p
+      puts p
+      if p[0].start_with?("esp_");
         esp = Especialidade.find(p[1]);
         @medico.especialidades << esp
       end      
-
     end
 
     respond_to do |format|
@@ -53,9 +56,11 @@ class MedicosController < ApplicationController
   # PATCH/PUT /medicos/1
   # PATCH/PUT /medicos/1.json
   def update
+    puts "update..."
     respond_to do |format|
       if @medico.update(medico_params)
-
+        puts medico_params
+        
         @params = params #consultando parametros
         @params.each do |p|
           if p[0].start_with?("esp");
