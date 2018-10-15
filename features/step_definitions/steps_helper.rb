@@ -17,6 +17,36 @@ def cria_convidado
   }
 end
 
+#Cadastro do Médico
+
+def cria_administrador
+  @administrador ||= {
+    :nome => "admin",
+    :email => "admin@admin",
+    :numerosus => "1234567",
+    :cpf => Faker::CPF.numeric,
+    :telfixo => Faker::PhoneNumber.phone_number,
+    :telcel => Faker::PhoneNumber.cell_phone,
+    #Tive que remover esses campos porque gerou esse erro no teste login_valido que ja tava passando antes...
+    #undefined method `dtanasc_mes=' for #<Usuario:0x000055fa78d1b320> (NoMethodError)
+    #:dtanasc_dia => "10",
+    #:dtanasc_mes => "9",
+    #:dtanasc_ano => "2013",
+    :password => "123456", :password_confirmation => "123456"
+  }
+end
+
+def fazer_login_Adm
+  visit '/usuarios/sign_in'
+  fill_in "usuario_email", :with => @administrador[:email]
+  fill_in "usuario_password", :with => @administrador[:password]
+  find(:xpath, "/html/body/div/div/form/button").click
+end
+
+
+# Fim Cadastro médico
+
+
 def find_user
   #Fix-me
   #apaguei temporariamente por causa do erro: undefined method `[]' for nil:NilClass (NoMethodError)
@@ -96,6 +126,17 @@ def preencherCamposLocal(objeto)
   fill_in "local_telefone", :with => objeto[:telefone]
 end
 
+def preencherCamposMedico(objeto)
+  fill_in "medico_nome", :with => objeto[:nome]
+  fill_in "medico_crm", :with => objeto[:crm]
+  fill_in "medico_local", :with => objeto[:local]
+  fill_in "medico_telefone", :with =>objeto[:telefone]
+  fill_in "medico_celular", :with => objeto[:celular]
+  fill_in "medico_email", :with => objeto[:email]
+  fill_in "medico_sexo", :with => objeto[:sexo]
+  fill_in "medico_situacao", :with => objeto[:situacao]
+  #  fill_in "medico_especialidade", :with => objeto[:especialidade]
+end
 
 def cria_local_valido
   @localvalido = {
@@ -122,3 +163,20 @@ def cria_local_invalido
     :telefone => nil
   }
 end
+
+def cria_medico_valido
+  @medicovalido = {
+    # Nome Crm Local Telefone Celular Email Sexo Situacao Especialidade
+    :nome => "Medico X",
+    :crm => Faker::Number.number(10),
+    :local => "Hospital X",
+    :telefone => Faker::PhoneNumber.phone_number,
+    :celular => Faker::PhoneNumber.cell_phone,
+    :email =>  Faker::Internet.email,
+    :sexo => Faker::Gender.binary_type,
+    :Situacao => Faker::String.random(7)
+    # Situação: Inativo ou Ativo
+    # :especialidade => Faker::Especialidade.especialidade  
+  }
+end
+
