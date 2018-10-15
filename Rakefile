@@ -13,12 +13,12 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-Rake::Task['db:drop'].execute
-Rake::Task['db:create'].execute
-Rake::Task['db:migrate'].execute
-Rake::Task['nossastasks:cria_usuario_admin'].execute
-Rake::Task['nossastasks:popula_usuarios_testar_cenario_login_com_credenciais_validas'].execute
-Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
+#Rake::Task['db:drop'].execute
+#Rake::Task['db:create'].execute
+#Rake::Task['db:migrate'].execute
+#Rake::Task['nossastasks:cria_usuario_admin'].execute
+#Rake::Task['nossastasks:popula_usuarios_testar_cenario_login_com_credenciais_validas'].execute
+#Rake::Task['nossastasks:popula_usuarios_aleatorios_para_testes'].execute
 #Rake::Task['cucumber:all']
 
 #task default: ["nossastasks:prepara_db" "nossastasks:popula_usuarios" "nossastasks:popula_usuarios_para_testes"]
