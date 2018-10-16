@@ -1,4 +1,5 @@
-#language:pt
+# language: pt
+
 Funcionalidade: Cadastro Medico Valido
   Testa Funcionalidade de Cadastro de Medico
 
@@ -18,3 +19,10 @@ Funcionalidade: Cadastro Medico Valido
       | CRM                             |
       | Especialidades                  |
       | Locais de Atendimento           |
+
+ Cenário: Acesso direto sem estar logado
+    Dado Eu sou um convidado
+    E Eu não estou logado
+    Quando Eu acesso pagina de criar um novo medico
+    Então recebo mensagem de erro na página de cadastro de médico
+    Então sou redirecionada para a página de login de usuário
