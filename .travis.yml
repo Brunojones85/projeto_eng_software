@@ -15,7 +15,7 @@ before_script:
 script:
        - bundle exec rspec spec --color --format doc
        - bundle exec rake
-       - bundle exec cucumber
+      # - bundle exec cucumber (temporariamente)
 
 # whitelist
 branches:
