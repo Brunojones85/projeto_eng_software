@@ -98,7 +98,7 @@ end
 
 def cria_local_valido
   @localvalido = {
-    :nome => "Hospital X",
+    :nome => Faker::Company.name,
     :cep => Faker::Address.zip_code,
     :rua => Faker::Address.street_name,
     :numero => Faker::Address.building_number,

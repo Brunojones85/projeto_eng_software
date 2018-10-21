@@ -8,7 +8,7 @@ ruby '2.5.1'
 #https://github.com/stympy/faker
 gem 'faker'
 gem 'cpf_faker'
-
+gem 'pry'
 #authentication
 
 gem 'devise'

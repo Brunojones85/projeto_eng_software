@@ -8,8 +8,7 @@ RSpec.describe "locais/index", type: :view do
         :cep => "Cep",
         :rua => "Rua",
         :numero => "Numero",
-        :estado => "Estado",
-        :cidade => "Cidade",
+        :cidade => Cidade.find(1),
         :bairro => "Bairro",
         :telefone => "Telefone",
         :ativo => true
@@ -19,8 +18,7 @@ RSpec.describe "locais/index", type: :view do
         :cep => "Cep",
         :rua => "Rua",
         :numero => "Numero",
-        :estado => "Estado",
-        :cidade => "Cidade",
+        :cidade => Cidade.find(2),
         :bairro => "Bairro",
         :telefone => "Telefone",
         :ativo => true
@@ -35,8 +33,8 @@ RSpec.describe "locais/index", type: :view do
     assert_select "tr>td", :text => "Cep".to_s, :count => 2
     assert_select "tr>td", :text => "Rua".to_s, :count => 2
     assert_select "tr>td", :text => "Numero".to_s, :count => 2
-    assert_select "tr>td", :text => "Estado".to_s, :count => 2
-    assert_select "tr>td", :text => "Cidade".to_s, :count => 2
+    assert_select "tr>td", :text => Cidade.find(1).nome.to_s, :count => 1
+    assert_select "tr>td", :text => Cidade.find(2).nome.to_s, :count => 1
     assert_select "tr>td", :text => "Bairro".to_s, :count => 2
     assert_select "tr>td", :text => "Telefone".to_s, :count => 2
   end

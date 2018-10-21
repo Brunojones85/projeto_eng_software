@@ -30,12 +30,11 @@ RSpec.describe LocaisController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      nome:  "Hospital X",
+      nome:Faker::Company.name,
       cep: Faker::Address.zip_code,
       rua: Faker::Address.street_name,
       numero: Faker::Address.building_number,
-      estado: Faker::Address.state_abbr,
-      cidade: Faker::Address.city ,
+      cidade_id: 1 ,
       bairro: Faker::Address.community,
       telefone: Faker::PhoneNumber.phone_number,
       ativo: true
@@ -48,8 +47,7 @@ RSpec.describe LocaisController, type: :controller do
       cep: nil,
       rua: nil,
       numero: nil,
-      estado: nil,
-      cidade: nil,
+      cidade_id: nil,
       bairro: nil,
       telefone: nil,
       ativo: nil
@@ -95,13 +93,17 @@ RSpec.describe LocaisController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Local" do
+        #binding.pry
+        #binding.pry
         expect {
           post :create, params: {local: valid_attributes}, session: valid_session
         }.to change(Local, :count).by(1)
       end
 
       it "redirects to the created local" do
+        #
         post :create, params: {local: valid_attributes}, session: valid_session
+        #binding.pry
         expect(response).to redirect_to(Local.last)
       end
     end
@@ -122,8 +124,8 @@ RSpec.describe LocaisController, type: :controller do
           cep: Faker::Address.zip_code,
           rua: Faker::Address.street_name,
           numero: Faker::Address.building_number,
-          estado: Faker::Address.state_abbr,
-          cidade: Faker::Address.city ,
+
+          cidade_id: 2 ,
           bairro: Faker::Address.community,
           telefone: Faker::PhoneNumber.phone_number,
           ativo: true

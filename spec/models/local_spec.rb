@@ -7,8 +7,7 @@ RSpec.describe Local, type: :model do
         cep: Faker::Address.zip_code,
         rua: Faker::Address.street_name,
         numero: Faker::Address.building_number,
-        estado: Faker::Address.state_abbr,
-        cidade: Faker::Address.city ,
+        cidade: Cidade.find(1),
         bairro: Faker::Address.community,
         telefone: Faker::PhoneNumber.phone_number,
         ativo: true
@@ -20,7 +19,7 @@ RSpec.describe Local, type: :model do
         cep: nil,
         rua: nil,
         numero: nil,
-        estado: nil,
+
         cidade: nil,
         bairro: nil,
         telefone: nil,

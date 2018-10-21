@@ -7,8 +7,7 @@ RSpec.describe "locais/show", type: :view do
       :cep => "Cep",
       :rua => "Rua",
       :numero => "Numero",
-      :estado => "Estado",
-      :cidade => "Cidade",
+      :cidade => Cidade.find(1),
       :bairro => "Bairro",
       :telefone => "Telefone",
       :ativo => true
@@ -21,8 +20,6 @@ RSpec.describe "locais/show", type: :view do
     expect(rendered).to match(/Cep/)
     expect(rendered).to match(/Rua/)
     expect(rendered).to match(/Numero/)
-    expect(rendered).to match(/Estado/)
-    expect(rendered).to match(/Cidade/)
     expect(rendered).to match(/Bairro/)
     expect(rendered).to match(/Telefone/)
   end
