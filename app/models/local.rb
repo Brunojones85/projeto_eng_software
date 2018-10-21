@@ -3,4 +3,5 @@ class Local < ApplicationRecord
   validates :cep, presence: true
   validates :ativo, inclusion: { in: [ true, false ] }
   validates :numero, presence: true
+  belongs_to :cidade
 end

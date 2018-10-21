@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_173519) do
+ActiveRecord::Schema.define(version: 2018_10_14_184301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cidades", force: :cascade do |t|
+    t.string "nome"
+    t.bigint "estado_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estado_id"], name: "index_cidades_on_estado_id"
+  end
 
   create_table "especialidades", force: :cascade do |t|
     t.string "Nome"
@@ -27,13 +35,19 @@ ActiveRecord::Schema.define(version: 2018_10_14_173519) do
     t.bigint "especialidade_id", null: false
   end
 
+  create_table "estados", force: :cascade do |t|
+    t.string "sigla"
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locais", force: :cascade do |t|
     t.string "nome"
     t.string "cep"
     t.string "rua"
     t.string "numero"
-    t.string "estado"
-    t.string "cidade"
+    t.integer "cidade_id"
     t.string "bairro"
     t.string "telefone"
     t.datetime "created_at", null: false
@@ -73,4 +87,5 @@ ActiveRecord::Schema.define(version: 2018_10_14_173519) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cidades", "estados"
 end

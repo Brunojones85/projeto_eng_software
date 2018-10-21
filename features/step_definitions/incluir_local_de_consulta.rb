@@ -10,14 +10,26 @@ Quando("acesso a página de cadastro de local de consulta") do
 end
 
 Quando("faço a submissão do formulário com dados válidos") do
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  Capybara.javascript_driver = :chrome
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver        = :selenium
+  end
   cria_local_valido
-  preencherCamposLocal(@localvalido)
-  find(:xpath, "/html/body/form/div[10]/input").click
+
 end
 
 Então("eu vou conseguir ver o novo local na página de listagem de locais de consultas") do
   visit "/locais/"
   page.find('td', text: @localvalido[:nome])
+
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver        = :rack_test
+  end
 end
 
 Quando("faço a submissão do formulário com dados inválidos") do

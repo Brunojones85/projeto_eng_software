@@ -4,7 +4,7 @@
 # coding: iso-8859-1
 
 require 'rubygems'
-require 'bundler' 
+require 'bundler'
 #require 'cucumber'
 #require 'cucumber/rake/task'
 #require 'test'
@@ -38,7 +38,7 @@ Rails.application.load_tasks
 #end
 
 
-#task :MensagemFromRakefile do  
+#task :MensagemFromRakefile do
 #  puts "MensagemFromRakefile: As taks que serao executadas na seguinte ordem: db:seed, cucumber"
 #end
 
@@ -48,5 +48,3 @@ Rails.application.load_tasks
 #  #  t.profile = 'ruby' if Cucumber::RUBY
 #  #t.cucumber_opts = %w{--format progress}
 #end
-
-

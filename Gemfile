@@ -8,10 +8,11 @@ ruby '2.5.1'
 #https://github.com/stympy/faker
 gem 'faker'
 gem 'cpf_faker'
-
+gem 'pry'
 #authentication
 
 gem 'devise'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -50,8 +51,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
-  gem 'rspec-rails' 
-  gem 'rails-i18n' 
+  gem 'rspec-rails'
+  gem 'rails-i18n'
 end
 
 group :development do
