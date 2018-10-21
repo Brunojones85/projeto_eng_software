@@ -1,6 +1,18 @@
 class LocaisController < ApplicationController
   before_action :set_local, only: [:show, :edit, :update, :destroy]
 
+  def carrega_cidade
+    estado_id = params[:id].to_i
+    #@estado = Estado.find(estado_id)
+    #@cidades = @estado.cidades.collect { |c| [c.nome, c.id] }
+    #render :layout => false
+    cidades = Cidade.where(:estado_id => estado_id).order(:nome)
+    cty = []
+    cidades.each do |cidade|
+      cty << {:id => cidade.id, :n => cidade.nome}
+    end
+    render :json => {:cty => cty.compact}.as_json
+  end
   # GET /locais
   # GET /locais.json
   def index
@@ -19,13 +31,14 @@ class LocaisController < ApplicationController
 
   # GET /locais/1/edit
   def edit
+    @estado = @local.cidade.estado
+    @cidade_id = @local.cidade.id
   end
 
   # POST /locais
   # POST /locais.json
   def create
     @local = Local.new(local_params)
-
     respond_to do |format|
       if @local.save
         format.html { redirect_to @local, notice: 'Local was successfully created.' }
@@ -69,6 +82,6 @@ class LocaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def local_params
-      params.require(:local).permit(:nome, :cep, :rua, :numero, :estado, :cidade, :bairro, :telefone,:ativo)
+      params.require(:local).permit(:nome, :cep, :rua, :numero, :cidade_id, :bairro, :telefone,:ativo)
     end
 end

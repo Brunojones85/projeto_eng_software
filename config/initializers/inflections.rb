@@ -16,4 +16,7 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'local', 'locais'
+  inflect.irregular 'estado', 'estados'
+  inflect.irregular 'cidade', 'cidades'
+  inflect.irregular 'capital', 'capitais'
 end

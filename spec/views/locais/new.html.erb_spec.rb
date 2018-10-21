@@ -7,8 +7,7 @@ RSpec.describe "locais/new", type: :view do
       :cep => "MyString",
       :rua => "MyString",
       :numero => "MyString",
-      :estado => "MyString",
-      :cidade => "MyString",
+      :cidade => Cidade.find(1),
       :bairro => "MyString",
       :telefone => "MyString",
       :ativo => true
@@ -27,10 +26,6 @@ RSpec.describe "locais/new", type: :view do
       assert_select "input[name=?]", "local[rua]"
 
       assert_select "input[name=?]", "local[numero]"
-
-      assert_select "input[name=?]", "local[estado]"
-
-      assert_select "input[name=?]", "local[cidade]"
 
       assert_select "input[name=?]", "local[bairro]"
 
