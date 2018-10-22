@@ -1,28 +1,30 @@
-# language: pt
-
-Funcionalidade: Cadastro Medico Valido
+Feature: Cadastro Medico Valido
   Testa Funcionalidade de Cadastro de Medico
 
-  Cenário: Cadastro realizado com sucesso (Caminho Feliz)
-    Dado Eu sou o Administrador
-    E Eu estou logado
-    Quando Eu acesso pagina de criar um novo medico
-    E envio o formulario de medico com dados validos
-    Então na pagina principal recebo a mensagem de Medico cadastrado com sucesso!
+  Scenario: Cadastro realizado com sucesso (Caminho Feliz)
+    Given Eu sou o Administrador
+    And Eu estou logado
+    When Eu acesso pagina de criar um novo medico
+    And envio o formulario de medico com dados validos
+    Then na pagina principal recebo a mensagem de Medico cadastrado com sucesso!
 
-  Cenário: Cadastro com dados obrigatorios faltando
-    Dado Eu sou Administrador
-    E Eu estou logado
-    Quando envio o form de novo medico com todos os campos em branco
-    Então recebo mensagems de erro na página de cadastro de médico para os seguintes campos:
-      | Nome do Medico                  |
-      | CRM                             |
-      | Especialidades                  |
-      | Locais de Atendimento           |
+  Scenario: Cadastro com dados obrigatorios faltando
+    Given Eu sou Administrador
+    And Eu estou logado
+    When envio o form de novo medico com todos os campos em branco
+    Then recebo mensagems de erro na pagina de cadastro de medico para os seguintes campos:
+      | Nome - Campo obrigatorio  |
+      | Crm - Campo obrigatorio    |
+      | Local - Campo obrigatorio  |
+      | Email - Campo obrigatorio  |
+      | Email n�o � v�lido         |
+      | Sexo - Campo obrigatorio   |
+      | Situacao - Campo obrigatorio                           |
 
- Cenário: Acesso direto sem estar logado
-    Dado Eu sou um convidado
-    E Eu não estou logado
-    Quando Eu acesso pagina de criar um novo medico
-    Então recebo mensagem de erro na página de cadastro de médico
-    Então sou redirecionada para a página de login de usuário
+
+ Scenario: Acesso direto sem estar logado
+    Given Eu sou um convidado
+    And Eu nao estou logado
+    When Eu acesso pagina de criar um novo medico
+    Then recebo mensagem de erro na pagina de cadastro de medico
+    Then sou redirecionada para a pagina de login de usuario

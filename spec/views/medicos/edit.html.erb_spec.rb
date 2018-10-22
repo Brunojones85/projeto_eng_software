@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe "medicos/edit", type: :view do
   before(:each) do
     @medico = assign(:medico, Medico.create!(
@@ -8,7 +9,7 @@ RSpec.describe "medicos/edit", type: :view do
       :local => "MyString",
       :telefone => "MyString",
       :celular => "MyString",
-      :email => "MyString",
+      :email => "email2@email",
       :sexo => "MyString",
       :situacao => "MyString"
     ))

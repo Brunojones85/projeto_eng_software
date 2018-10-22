@@ -165,17 +165,14 @@ end
 
 def cria_medico_valido
   @medicovalido = {
-    # Nome Crm Local Telefone Celular Email Sexo Situacao Especialidade
-    :nome => "Medico X",
-    :crm => Faker::Number.number(10),
-    :local => "Hospital X",
+    :nome => "Medico X2",
+    :crm => "Crm33",
+    :local => "Hospital X2",
     :telefone => Faker::PhoneNumber.phone_number,
     :celular => Faker::PhoneNumber.cell_phone,
     :email =>  Faker::Internet.email,
     :sexo => Faker::Gender.binary_type,
-    :Situacao => Faker::String.random(7)
-    # Situação: Inativo ou Ativo
-    # :especialidade => Faker::Especialidade.especialidade  
+    :situacao => Faker::String
   }
 end
 

@@ -14,6 +14,7 @@ class MedicosController < ApplicationController
 
   # GET /medicos/new
   def new
+    puts "[medicos_controller.rb] def new..."
     @medico = Medico.new
     @especialidade = Especialidade.all
   end
@@ -25,7 +26,7 @@ class MedicosController < ApplicationController
 
   # POST /medicos
   # POST /medicos.json
-  def create    
+  def create
     @medico = Medico.new(medico_params)
     @params = params #consultando parametros
     #PESSOAL, quando o botao do create new e pressionado precisamos dos parametros
