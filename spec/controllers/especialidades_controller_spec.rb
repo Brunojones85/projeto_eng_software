@@ -103,14 +103,17 @@ RSpec.describe EspecialidadesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+       {
+          Nome:"Clinico geral",
+           Descricao:"Medico do tipo clinico geral"
+        }
       }
 
       it "updates the requested especialidade" do
         especialidade = Especialidade.create! valid_attributes
         put :update, params: {id: especialidade.to_param, especialidade: new_attributes}, session: valid_session
         especialidade.reload
-        skip("Add assertions for updated state")
+        expect(response.status).to eq(302)
       end
 
       it "redirects to the especialidade" do
