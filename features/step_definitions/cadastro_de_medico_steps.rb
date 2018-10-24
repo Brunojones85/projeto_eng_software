@@ -1,5 +1,5 @@
 require_relative "steps_helper"
-include Warden::Test::Helpers
+
 
 # Cenario: Cadastro realizado com sucesso (Caminho Feliz)
   
