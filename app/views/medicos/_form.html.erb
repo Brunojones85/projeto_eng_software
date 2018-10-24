@@ -1,15 +1,17 @@
 <%= form_with(model: medico, local: true) do |form| %>
-  <% if medico.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>
 
-      <ul>
-      <% medico.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    
+    <% if medico.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>
+            
+            <ul>
+                <% medico.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
   <div class="field">
     <%= form.label :nome %>

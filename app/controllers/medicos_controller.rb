@@ -1,32 +1,50 @@
-class MedicosController < ApplicationController
+class MedicosController < ApplicationController  
+  before_action :authenticate_usuario!
   before_action :set_medico, only: [:show, :edit, :update, :destroy]
-
   # GET /medicos
   # GET /medicos.json
+
+  def verifica_se_usuario_logado_e_admin
+    @usuario_logado = current_usuario
+    if @usuario_logado.nome != "admin"
+      sign_out :usuario
+      redirect_to "/usuarios/sign_in"
+    end
+  end
+  
   def index
+    puts "###[medicos_controller] def index..."
+    verifica_se_usuario_logado_e_admin
+    #redirect_to :root
     @medicos = Medico.all
   end
 
   # GET /medicos/1
   # GET /medicos/1.json
   def show
+    verifica_se_usuario_logado_e_admin
   end
 
   # GET /medicos/new
   def new
-    puts "[medicos_controller.rb] def new..."
+    puts "###[medicos_controller.rb] def new..."
+    verifica_se_usuario_logado_e_admin
     @medico = Medico.new
     @especialidade = Especialidade.all
   end
 
   # GET /medicos/1/edit
-  def edit
+  def edit    
+    puts "###[medicos_controller] def edit..."
+    verifica_se_usuario_logado_e_admin
     @especialidade = Especialidade.all
   end
 
   # POST /medicos
   # POST /medicos.json
   def create
+    puts "###[medicos_controller] def create..."
+    verifica_se_usuario_logado_e_admin
     @medico = Medico.new(medico_params)
     @params = params #consultando parametros
     #PESSOAL, quando o botao do create new e pressionado precisamos dos parametros
@@ -58,6 +76,7 @@ class MedicosController < ApplicationController
   # PATCH/PUT /medicos/1.json
   def update
     puts "update..."
+    verifica_se_usuario_logado_e_admin
     respond_to do |format|
       if @medico.update(medico_params)
         puts medico_params
@@ -82,6 +101,7 @@ class MedicosController < ApplicationController
   # DELETE /medicos/1
   # DELETE /medicos/1.json
   def destroy
+    verifica_se_usuario_logado_e_admin
     @medico.destroy
     respond_to do |format|
       format.html { redirect_to medicos_url, notice: 'Medico was successfully destroyed.' }

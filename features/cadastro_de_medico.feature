@@ -13,18 +13,17 @@ Feature: Cadastro Medico Valido
     And Eu estou logado
     When envio o form de novo medico com todos os campos em branco
     Then recebo mensagems de erro na pagina de cadastro de medico para os seguintes campos:
-      | Nome - Campo obrigatorio  |
-      | Crm - Campo obrigatorio    |
-      | Local - Campo obrigatorio  |
-      | Email - Campo obrigatorio  |
-      | Email não é válido         |
-      | Sexo - Campo obrigatorio   |
-      | Situacao - Campo obrigatorio                           |
+      | Nome - Campo obrigatorio     | 
+      | Crm - Campo obrigatorio      | 
+      | Local - Campo obrigatorio    | 
+      | Email - Campo obrigatorio    | 
+      | Email                        | 
+      | Sexo - Campo obrigatorio     | 
+      | Situacao - Campo obrigatorio | 
 
 
  Scenario: Acesso direto sem estar logado
     Given Eu sou um convidado
     And Eu nao estou logado
     When Eu acesso pagina de criar um novo medico
-    Then recebo mensagem de erro na pagina de cadastro de medico
     Then sou redirecionada para a pagina de login de usuario

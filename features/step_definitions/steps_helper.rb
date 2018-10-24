@@ -1,3 +1,4 @@
+# coding: iso-8859-1
 puts "## [steps_helper.rb] Carregado com sucesso!"
 
 def cria_convidado
@@ -20,6 +21,7 @@ end
 #Cadastro do MÃ©dico
 
 def cria_administrador
+  Usuario.destroy_all #apaga todos os usuarios do banco
   @administrador ||= {
     :nome => "admin",
     :email => "admin@admin",
@@ -34,13 +36,21 @@ def cria_administrador
     #:dtanasc_ano => "2013",
     :password => "123456", :password_confirmation => "123456"
   }
+ FactoryBot.create(:usuario, @administrador)
 end
 
 def fazer_login_Adm
   visit '/usuarios/sign_in'
+  #O certo e testar a frase completa, mas o rapido tem acento
+  #o cucumber nao fica nada feliz com isso
+  #por equanto tesmos certeza que \"pido - ACESSAR\" testa o que a gente quer
+  #ate que consigamos resolver essa questao dos acentos no cubumber
+  #expect(page).to have_content("Agende Rápido - ACESSAR");
+  expect(page).to have_content("pido - ACESSAR");
   fill_in "usuario_email", :with => @administrador[:email]
   fill_in "usuario_password", :with => @administrador[:password]
   find(:xpath, "/html/body/div/div/form/button").click
+  expect(page).to have_content("Seja bem-vindo admin");
 end
 
 
@@ -122,7 +132,6 @@ def preencherCamposLocal(objeto)
   fill_in "local_bairro", :with => objeto[:bairro]
   fill_in "local_numero", :with => objeto[:numero]
   fill_in "local_telefone", :with => objeto[:telefone]
-
 end
 
 def preencherCamposMedico(objeto)
