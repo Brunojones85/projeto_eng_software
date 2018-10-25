@@ -93,4 +93,12 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
+
+  # DEPRECATION WARNING: [Devise] including `Devise::TestHelpers` is deprecated and will be removed from Devise. 
+  # config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers :type => :controller
+  config.include Devise::Test::ControllerHelpers :type => :view
+
 end
