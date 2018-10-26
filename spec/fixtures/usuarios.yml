@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#usuario1:
+#  nome:  'usuario1'
+#  numerosus: '123456789'
+#  cpf: '123.123.123-12'
+#  dtanasc: '2018-09-09'
+#  telfixo: '11 94444-4444'
+# telcel: '11 9 9999-9999'
+#  sexo: 'male'
+#  created_at: '2018-09-09'
+#  updated_at: '2018-09-09'
+
+
+usuarioAdmin:
+  nome:  'admin'  
+  numerosus: '123456789'
+  cpf: '123.123.123-13'
+  dtanasc: '2018-09-09'
+  telfixo: '11 94444-4444'
+  telcel: '11 9 9999-9999'
+  sexo: 'male'
+  email: 'admin@admin'
+  created_at: '2018-09-09'
+  updated_at: '2018-09-09'
+
+
