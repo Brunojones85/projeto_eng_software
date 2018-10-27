@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.configure do |config|
 
-  config.include ControllerHelpers, :type => :controller
+  #por algum motivo que nao sei ainda, o travis deu esse erro para esse include que comentei abaixo
+  #Failure/Error: config.include ControllerHelpers, :type => :controller
+  #config.include ControllerHelpers, :type => :controller
+
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include Devise::Test::ControllerHelpers, :type => :view
 
