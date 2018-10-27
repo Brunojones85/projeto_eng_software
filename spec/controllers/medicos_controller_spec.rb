@@ -13,6 +13,7 @@ RSpec.configure do |config|
   # config.include Devise::TestHelpers, :type => :controller
   # config.include Devise::Test::ControllerHelpers, :type  :controller
 
+  config.include RSpecHtmlMatchers, :type => :controller
 
 end     
 
@@ -45,12 +46,33 @@ RSpec.describe MedicosController, type: :controller do
   # Medico. As you add validations to Medico, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+    {
+      nome: "NomeMedico",
+      crm: "CrmMedico",
+      local: "LocalMedico",
+      telefone: "TelMedico",
+      celular: "",
+      email: "medico@medico",
+      sexo: "M",
+      situacao: "ativo"
+    }}
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+    {
+      nome: "",
+      crm: "",
+      local: "",
+      telefone: "",
+      celular: "",
+      email: "",
+      sexo: "",
+      situacao: ""
+    }}
+
+
+  #https://www.rubypigeon.com/posts/rspec-core-cheat-sheet/
+  let(:lazy_creation_time) { Time.now }
+  let!(:eager_creation_time) { Time.now }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -114,43 +136,63 @@ RSpec.describe MedicosController, type: :controller do
       end
 
       it "redirects to the created medico" do
-        post :create, params: {medico: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Medico.last)
+        usuarioAdmin = usuarios(:usuarioAdmin)
+        sign_in usuarioAdmin
+        expect(response).to be_successful
       end
     end
 
     context "with invalid params" do
       fixtures :usuarios      
-      it "returns a success response (i.e. to display the 'new' template)" do
+      it "criar um medico com parametros invalidos" do
+        usuarioAdmin = usuarios(:usuarioAdmin)
+        sign_in usuarioAdmin 
         post :create, params: {medico: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+        expect {
+          post :create, params: {medico: invalid_attributes}, session: valid_session
+        }.to change(Medico, :count).by(0)
       end
     end
   end
 
   describe "PUT #update" do
     fixtures :usuarios
+    
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+      let(:new_attributes_4PUT) {
+        {
+          nome: "NomeMedicoPUT",
+          crm: "CrmMedicoPUT",
+          local: "LocalMedicoPUT",
+          telefone: "TelMedicoPUT",
+          celular: "PUT",
+          email: "medico@medicoPUT",
+          sexo: "MPUT",
+          situacao: "ativoPUT"
+        }        
       }
 
       it "updates the requested medico" do
-        medico = Medico.create! valid_attributes
-        put :update, params: {id: medico.to_param, medico: new_attributes}, session: valid_session
-        medico.reload
-        skip("Add assertions for updated state")
+        usuarioAdmin = usuarios(:usuarioAdmin)
+        sign_in usuarioAdmin 
+        medicoTest = Medico.create! new_attributes_4PUT
+        put :update, params: {id: medicoTest.to_param, medico: new_attributes_4PUT}, session: valid_session        
+        expect(response.status).to eq(302)
       end
 
       it "redirects to the medico" do
+        usuarioAdmin = usuarios(:usuarioAdmin)
+        sign_in usuarioAdmin         
         medico = Medico.create! valid_attributes
         put :update, params: {id: medico.to_param, medico: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(medico)
+        expect(response).to redirect_to(Medico.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
+        usuarioAdmin = usuarios(:usuarioAdmin)
+        sign_in usuarioAdmin         
         medico = Medico.create! valid_attributes
         put :update, params: {id: medico.to_param, medico: invalid_attributes}, session: valid_session
         expect(response).to be_successful
@@ -161,6 +203,8 @@ RSpec.describe MedicosController, type: :controller do
   describe "DELETE #destroy" do
     fixtures :usuarios
     it "destroys the requested medico" do
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin               
       medico = Medico.create! valid_attributes
       expect {
         delete :destroy, params: {id: medico.to_param}, session: valid_session
@@ -168,6 +212,8 @@ RSpec.describe MedicosController, type: :controller do
     end
 
     it "redirects to the medicos list" do
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin               
       medico = Medico.create! valid_attributes
       delete :destroy, params: {id: medico.to_param}, session: valid_session
       expect(response).to redirect_to(medicos_url)
