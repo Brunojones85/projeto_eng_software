@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.configure do |config|
+
   config.include ControllerHelpers, :type => :controller
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include Devise::Test::ControllerHelpers, :type => :view
@@ -14,13 +15,11 @@ end
 
 
 RSpec.describe "Medicos", type: :request do
-  fixtures :usuarios
   describe "GET /medicos" do
-    it "works! (now write some real specs)" do
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+    it "Acesso GET /medicos sem login resulta em um redirecionamento (Para testes com login validos, ver testes do controller)" do
       get medicos_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(302)
     end
+
   end
 end
