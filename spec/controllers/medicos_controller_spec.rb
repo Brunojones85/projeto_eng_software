@@ -3,7 +3,9 @@ require 'rails_helper'
 #require 'support/controller_helper'
 
 RSpec.configure do |config|
-  config.include ControllerHelpers, :type => :controller
+  #por algum motivo que nao sei ainda, o travis deu esse erro para esse include que comentei abaixo
+  #Failure/Error: config.include ControllerHelpers, :type => :controller
+  #config.include ControllerHelpers, :type => :controller
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include Devise::Test::ControllerHelpers, :type => :view
 
@@ -59,8 +61,8 @@ RSpec.describe MedicosController, type: :controller do
   describe "GET #index" do
     fixtures :usuarios
     it "returns a success response" do      
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin 
       expect(response).to be_success
       Medico.create! valid_attributes
       get :index, params: {}, session: valid_session
@@ -71,8 +73,8 @@ RSpec.describe MedicosController, type: :controller do
   describe "GET #show" do
     fixtures :usuarios
     it "returns a success response" do
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin 
       medico = Medico.create! valid_attributes
       get :show, params: {id: medico.to_param}, session: valid_session
       expect(response).to be_successful
@@ -82,8 +84,8 @@ RSpec.describe MedicosController, type: :controller do
   describe "GET #new" do
     fixtures :usuarios
     it "returns a success response" do      
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin 
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -92,8 +94,8 @@ RSpec.describe MedicosController, type: :controller do
   describe "GET #edit" do
     fixtures :usuarios
     it "returns a success response" do
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin 
       medico = Medico.create! valid_attributes
       get :edit, params: {id: medico.to_param}, session: valid_session
       expect(response).to be_successful
@@ -104,8 +106,8 @@ RSpec.describe MedicosController, type: :controller do
     fixtures :usuarios
     context "with valid params" do
       it "creates a new Medico" do
-      usuario = usuarios(:usuarioAdmin)
-      sign_in usuario 
+      usuarioAdmin = usuarios(:usuarioAdmin)
+      sign_in usuarioAdmin 
         expect {
           post :create, params: {medico: valid_attributes}, session: valid_session
         }.to change(Medico, :count).by(1)
