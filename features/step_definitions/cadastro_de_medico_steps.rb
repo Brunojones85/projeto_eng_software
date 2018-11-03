@@ -24,14 +24,15 @@ When("Eu acesso pagina de criar um novo medico") do
    expect(page).to have_content("Cadastrar Novo Medico");
 end
 
-When("envio o formulari\o de medico com dados validos") do
+When("envio o formulario de medico com dados validos") do
   cria_administrador
   fazer_login_Adm
   visit '/medicos/new'
   expect(page).to have_content("Cadastrar Novo Medico");
   cria_medico_valido
   preencherCamposMedico(@medicovalido)
-  find(:xpath, "/html/body/form/div[9]/input").click
+#  find(:xpath, "/html/body/form/div[9]/input").click
+  find(:xpath, "/html/body/div/div/form/div[9]/input").click
 end
 
 Then("na pagina principal recebo a mensagem de Medico cadastrado com sucesso!") do
@@ -40,7 +41,8 @@ Then("na pagina principal recebo a mensagem de Medico cadastrado com sucesso!") 
   visit '/medicos/new'
   cria_medico_valido
   preencherCamposMedico(@medicovalido)
-  find(:xpath, "/html/body/form/div[9]/input").click
+  # find(:xpath, "/html/body/form/div[9]/input").click
+  find(:xpath, "/html/body/div/div/form/div[9]/input").click
   expect(page).to have_content("Medico was successfully created.")
 end
 

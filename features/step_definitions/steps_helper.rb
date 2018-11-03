@@ -187,7 +187,8 @@ end
 
 def medico_sem_dado_no_form
   visit '/medicos/new'
-  find(:xpath,"/html/body/form/div[9]/input").click
+  # find(:xpath,"/html/body/form/div[9]/input").click
+  find(:xpath,"/html/body/div/div/form/div[9]/input").click
 end
 
 
