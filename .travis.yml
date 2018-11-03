@@ -13,6 +13,8 @@ before_script:
 
 
 script:
+      - rake db:create
+      - rake db:migrate RAILS_ENV=test
       - bundle exec rspec spec --color --format doc
       #- bundle exec rake
       # - bundle exec cucumber (temporariamente)
