@@ -13,9 +13,9 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-Rake::Task['db:drop'].execute
-Rake::Task['db:create'].execute
-Rake::Task['db:migrate'].execute
+#Rake::Task['db:drop'].execute
+#Rake::Task['db:create'].execute
+#Rake::Task['db:migrate'].execute
 
 # Justificativa pra nao rodar a nossastasks:cria_usuario_admin
 # e que qdo a gente usa uma fixture que cria um administrador ocorre esse conflito abaixo
@@ -26,7 +26,7 @@ Rake::Task['db:migrate'].execute
 # especifico e depois fazer o rollback dele o que melhora a questao da independencia dos testes
 # Pelo mesmo motivo foi comentado tambe a taxk popula usuarios
 #Failure/Error: @connection.async_exec(sql)
-#     
+#
 #     ActiveRecord::RecordNotUnique:
 #       PG::UniqueViolation: ERRO:  duplicar valor da chave viola a restrição de unicidade "index_usuarios_on_email"
 #       DETAIL:  Chave (email)=() já existe.
