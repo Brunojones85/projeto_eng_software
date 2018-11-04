@@ -31,14 +31,16 @@ RSpec.describe EspecialidadesController, type: :controller do
   let(:valid_attributes) {
     {
       Nome:"Cardiologista" ,
-      Descricao:"Médico especialista"
+      Descricao:"Médico especialista" , 
+      ativo:true
     }
   }
 
   let(:invalid_attributes) {
     {
       Nome:nil,
-       Descricao:"Teste sem a propriedade nome"
+       Descricao:"Teste sem a propriedade nome" , 
+       ativo:nil
     }
   }
 
