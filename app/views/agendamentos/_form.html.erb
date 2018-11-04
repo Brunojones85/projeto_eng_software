@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :especialidade_id %><br />
-    <%= form.collection_select( :especialidade_id, [], :id, :Nome,  {:prompt => true}) %>
+    <%= form.collection_select( :especialidade_id, Especialidade.where(:id => @especialidade), :id, :Nome,  {:prompt => true}) %>
 </div>
 
   <div class="field">

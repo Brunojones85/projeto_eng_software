@@ -19,7 +19,15 @@ class AgendamentosController < ApplicationController
   # GET /agendamentos
   # GET /agendamentos.json
   def index
-    @agendamentos = Agendamento.all
+    medico = params[:medico_id]
+    usuario = params[:usuario_id]
+    if medico != nil
+      @agendamentos = Agendamento.where(:medico_id => medico)
+    elsif usuario != nil
+      @agendamentos = Agendamento.where(:usuario_id => usuario)
+    else
+      @agendamentos = Agendamento.all
+    end
   end
 
   # GET /agendamentos/1
@@ -34,6 +42,8 @@ class AgendamentosController < ApplicationController
 
   # GET /agendamentos/1/edit
   def edit
+    
+    @especialidade = @agendamento.especialidade.id
   end
 
   # POST /agendamentos

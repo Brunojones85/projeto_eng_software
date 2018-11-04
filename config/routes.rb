@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
   resources :agendamentos
-  resources :medicos
+  resources :medicos do
+    resources :agendamentos
+  end
   resources :locais
   get "/carrega_cidade" , to: "locais#carrega_cidade"
   get "/carrega_especialidades" , to: "agendamentos#carrega_especialidades"
   resources :especialidades
   devise_for :usuarios #do
-  resources :usuarios
+
+  resources :usuarios do
+    resources :agendamentos
+  end
 
   #devise_scope :usuario do
   #  get '/signout', to: 'devise/sessions#destroy', as: :signout
