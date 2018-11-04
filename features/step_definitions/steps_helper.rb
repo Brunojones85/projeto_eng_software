@@ -193,8 +193,15 @@ end
 
 
 def cria_info_agendamento_valido
-  @info_agendamento_valido = {
-    :data => DateTime.current()
+  valid_attributes = {
+
+      data: DateTime.now(),
+      local_id:  FactoryBot.create(:local).id,
+      especialidade_id: FactoryBot.create(:especialidade).id,
+      medico_id:  FactoryBot.create(:medico).id,
+      usuario_id: FactoryBot.create(:usuario).id
+
   }
-  @agendamento_info_valido = FactoryBot.create(:agendamento, @info_agendamento_valido)
+
+  @agendamento_valido = Agendamento.create! valid_attributes
 end
