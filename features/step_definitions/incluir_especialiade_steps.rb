@@ -25,7 +25,8 @@ Quando("faço o cadastro de uma especialidade") do
   fill_in "especialidade_Nome", :with => @especialidadevalida[:Nome]
   fill_in "especialidade_Descricao", :with => @especialidadevalida[:Descricao]
   find(:xpath, "/html/body/form/div[9]/input").click
-endEntão("eu vou conseguir ver a nova especialidadecd") do
+end 
+Então("eu vou conseguir ver a nova especialidadecd") do
   visit "/especialidades/"
   page.find('td', text: @especialidadevalida[:Nome])
 end
