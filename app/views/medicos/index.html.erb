@@ -1,8 +1,15 @@
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - Listar M&eacute;dicos</h1>
+</header>
+
+<div class="w3-container w3-quarter{float:left;width:100%} w3-margin-top">
+<div class="w3-container w3-card-4">
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Medicos</h1>
 
-<table>
+<table class="w3-table-all">
   <thead>
     <tr>
       <th>Nome</th>
@@ -17,6 +24,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+
 
   <tbody>
     <% @medicos.each do |medico| %>
@@ -42,6 +50,7 @@
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 

@@ -1,5 +1,5 @@
-require_relative "steps_helper", "incluir_especialidade_steps"
-
+require_relative "steps_helper"
+require_relative "incluir_especialiade_steps"
 
 
 Quando("acesso a página de listagem de especialidades") do

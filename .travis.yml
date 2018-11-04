@@ -13,8 +13,10 @@ before_script:
 
 
 script:
-       #- bundle exec rspec spec --color --format doc
-       - bundle exec rake
+      - bundle exec rake db:create
+      - bundle exec rake db:migrate RAILS_ENV=test
+      - bundle exec rspec spec --color --format doc
+      #- bundle exec rake
       # - bundle exec cucumber (temporariamente)
 
 # whitelist
