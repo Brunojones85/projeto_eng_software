@@ -3,7 +3,8 @@ require_relative "steps_helper"
 def cria_especialidade_valida
   @especialidadevalida = {
     :Nome => "Clinico geral",
-    :Descricao => "Atendimento geral"
+    :Descricao => "Atendimento geral",
+    :ativo => true
   }
 
 end
@@ -11,12 +12,10 @@ end
 def cria_especialiade_invalida
   @especialidadeinvalida = {
     :Nome => nil,
-    :Descricao => "teste"
-    
+    :Descricao => "teste", 
+    :ativo => true
   }
 end
-
-
 
 Quando("acesso a página de cadastro de especialidade") do
   visit "/especialidades/new"
@@ -26,10 +25,11 @@ Quando("faço o cadastro de uma especialidade") do
   cria_especialidade_valida
   fill_in "especialidade_Nome", :with => @especialidadevalida[:Nome]
   fill_in "especialidade_Descricao", :with => @especialidadevalida[:Descricao]
-  find(:xpath, "/html/body/form/div[9]/input").click
-end
+  fill_in "especialidade_ativo", :with => @especialidadevalida[:ativo]
 
-Então("eu vou conseguir ver a nova especialidade") do
+  find(:xpath, "/html/body/form/div[9]/input").click
+end 
+Então("eu vou conseguir ver a nova especialidadecd") do
   visit "/especialidades/"
   page.find('td', text: @especialidadevalida[:Nome])
 end
@@ -37,8 +37,8 @@ end
 Quando("Tento cadastrar uma especialidade inválida") do
   especialidadeinvalida
   fill_in "especialiade_nome", :with => @especialidadeinvalida[:nome]
-  fill_in "especialiade_Descricao", :with => @especialidadeinvalida[:cep]
-  
+  fill_in "especialiade_Descricao", :with => @especialidadeinvalida[:Descricao]
+  fill_in "especialiade_ativo", :with => @especialidadeinvalida[:ativo]
   find(:xpath, "/html/body/form/div[9]/input").click
 end
 
