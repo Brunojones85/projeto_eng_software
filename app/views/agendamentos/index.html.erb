@@ -7,6 +7,8 @@
     <tr>
       <th>Data</th>
       <th>Local</th>
+      <th>Local Estado</th>
+      <th>Local Cidade</th>
       <th>Especialidade</th>
       <th>Medico</th>
       <th>Usuario</th>
@@ -19,6 +21,8 @@
       <tr>
         <td><%= agendamento.data %></td>
         <td><%= agendamento.local.nome %></td>
+        <td><%= agendamento.local.cidade.estado.nome %></td>
+        <td><%= agendamento.local.cidade.nome %></td>
         <td><%= agendamento.especialidade.Nome %></td>
         <td><%= agendamento.medico.nome %></td>
         <%if not agendamento.usuario.nil?  %>

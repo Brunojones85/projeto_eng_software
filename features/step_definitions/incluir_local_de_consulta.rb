@@ -6,7 +6,7 @@ Dado("que eu estou logado") do
 end
 
 Quando("acesso a página de cadastro de local de consulta") do
-  visit "/locais/new"
+  visit "/locais/new/"
 end
 
 Quando("faço a submissão do formulário com dados válidos") do

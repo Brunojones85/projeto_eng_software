@@ -9,4 +9,8 @@ class Agendamento < ApplicationRecord
   belongs_to :medico
   belongs_to :usuario, optional: true
 
+  ransacker :data_desejada do
+    Arel.sql('date(data)')
+  end
+
 end
