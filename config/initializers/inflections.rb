@@ -19,4 +19,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'estado', 'estados'
   inflect.irregular 'cidade', 'cidades'
   inflect.irregular 'capital', 'capitais'
+  inflect.irregular 'agendamento', 'agendamentos'
 end

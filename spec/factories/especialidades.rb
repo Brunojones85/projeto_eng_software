@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :especialidade do
-    Nome { "MyString" }
-    Descricao { "MyString" }
+    Nome { Faker::Company.profession }
+    Descricao { Faker::GreekPhilosophers.quote }
   end
 end

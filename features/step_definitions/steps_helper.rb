@@ -45,7 +45,7 @@ def fazer_login_Adm
   #o cucumber nao fica nada feliz com isso
   #por equanto tesmos certeza que \"pido - ACESSAR\" testa o que a gente quer
   #ate que consigamos resolver essa questao dos acentos no cubumber
-  #expect(page).to have_content("Agende Rápido - ACESSAR");
+  #expect(page).to have_content("Agende Rï¿½pido - ACESSAR");
   expect(page).to have_content("pido - ACESSAR");
   fill_in "usuario_email", :with => @administrador[:email]
   fill_in "usuario_password", :with => @administrador[:password]
@@ -192,3 +192,9 @@ def medico_sem_dado_no_form
 end
 
 
+def cria_info_agendamento_valido
+  @info_agendamento_valido = {
+    :data => DateTime.current()
+  }
+  @agendamento_info_valido = FactoryBot.create(:agendamento, @info_agendamento_valido)
+end

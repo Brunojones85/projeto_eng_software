@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :agendamentos
   resources :medicos
   resources :locais
   get "/carrega_cidade" , to: "locais#carrega_cidade"
+  get "/carrega_especialidades" , to: "agendamentos#carrega_especialidades"
   resources :especialidades
   devise_for :usuarios #do
   resources :usuarios
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   #devise_scope :usuario do
   #  get '/signout', to: 'devise/sessions#destroy', as: :signout
   #end
- 
+
   #    get 'sign_out', to: 'devise/sessions#destroy'
 #  end
       	  #, controllers:{
