@@ -79,16 +79,7 @@ class MedicosController < ApplicationController
     verifica_se_usuario_logado_e_admin
     respond_to do |format|
       if @medico.update(medico_params)
-        puts medico_params
-        
-        @params = params #consultando parametros
-        @params.each do |p|
-          if p[0].start_with?("esp");
-            esp = Especialidade.find(p[1]);
-            @medico.especialidades << esp
-          end                
-        end
-
+        checa_se_ha_params_que_sao_especialidades_e_atribui_ao_medico(params)
         format.html { redirect_to @medico, notice: 'Medico was successfully updated.' }
         format.json { render :show, status: :ok, location: @medico }
       else
@@ -98,6 +89,16 @@ class MedicosController < ApplicationController
     end
   end
 
+  def checa_se_ha_params_que_sao_especialidades_e_atribui_ao_medico(parametros)
+    @params = parametros
+    @params.each do |p|
+      if p[0].start_with?("esp");
+        esp = Especialidade.find(p[1]);
+        @medico.especialidades << esp
+      end                          
+    end
+  end
+  
   # DELETE /medicos/1
   # DELETE /medicos/1.json
   def destroy

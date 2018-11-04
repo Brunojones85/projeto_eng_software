@@ -13,3 +13,4 @@ exclude_patterns:
 - "spec/controllers/especialidades_controller_spec.rb"
 - "spec/controllers/locais_controller_spec.rb"
 - "spec/controllers/usuarios_controller_spec.rb"
+- "db/migrate/"
