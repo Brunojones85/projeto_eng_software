@@ -78,14 +78,16 @@
 
     <span><strong>Especialidades Existentes:</strong></span><br>
 
-    <% for @item in @especialidade %>
-        <%= check_box_tag  "esp_" + @item.Nome, @item.id, checked = false %><%= @item.Nome %><br></br>
+    <% if (@especialidade.count == 0) %>
+        <%= "Nao exitem especialidades cadastradas" %>
+    <% else %>    
+        <% for @item in @especialidade %>
+            <%= check_box_tag  "esp_" + @item.Nome, @item.id, checked = false %><%= @item.Nome %><br></br>
+        <% end %>
     <% end %>
      
     
-    
-
-    
+       
     
     
 
