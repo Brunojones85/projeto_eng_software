@@ -4,8 +4,7 @@
     
     <% if medico.errors.any? %>
         <div id="error_explanation">
-            <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>
-            
+            <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>            
             <ul>
                 <% medico.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
@@ -14,73 +13,82 @@
         </div>
     <% end %>
 
-  <div class="field">
-    <%= form.label :nome%>
-    <%= form.text_field :nome %>
-  </div>
+    <div class="field">
+        <%= form.label :nome%>
+        <%= form.text_field :nome %>
+    </div>
 
-  <div class="field">
-    <%= form.label :crm %>
-    <%= form.text_field :crm %>
-  </div>
+    <div class="field">
+        <%= form.label :crm %>
+        <%= form.text_field :crm %>
+    </div>
 
-  <div class="field">
-    <%= form.label :local %>
-    <%= form.text_field :local %>
-  </div>
+    <div class="field">
+        <%= form.label :local %>
+        <%= form.text_field :local %>
+    </div>
 
-  <div class="field">
-    <%= form.label :telefone %>
-    <%= form.text_field :telefone %>
-  </div>
+    <div class="field">
+        <%= form.label :telefone %>
+        <%= form.text_field :telefone %>
+    </div>
 
-  <div class="field">
-    <%= form.label :celular %>
-    <%= form.text_field :celular %>
-  </div>
+    <div class="field">
+        <%= form.label :celular %>
+        <%= form.text_field :celular %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+    </div>
 
-  <div class="field">
-    <%= form.label :sexo %>
-    <%= form.text_field :sexo %>
-  </div>
+    <div class="field">
+        <%= form.label :sexo %>
+        <%= form.text_field :sexo %>
+    </div>
 
-  <div class="field">
-      <%= form.label :situacao %>
-      <%= form.text_field :situacao %>
-  </div>
+    <div class="field">
+        <%= form.label :situacao %>
+        <%= form.text_field :situacao %>
+    </div>
 
-  
-  <span>Especialidades deste M&eacute;dico</span></br>
-  <% if @medico.especialidades.length > 0 %>
-      <% @medico.especialidades.each do | e | %>
-          <li><%= e.Nome %></li>
-      <% end %>
-      <hr></hr>
-  <% else %>
-      <span>Este m&eacute;dico ainda n&atilde;o tem especialidade:</span>
-      <hr></hr>
-  <% end %>
-  
-  <hr></hr>
-  
-  <span>Especialidades Existentes:</span><br>
-  <%= form.fields_for :especialidades do |especialidade_fields| %>
-      <% if especialidade_fields.object != nil? %>
-          Esp: <%= especialidade_fields.text_field :Nome %>
-      <% end %>
-  <% end %>
+    
+    <span><strong>Especialidades deste M&eacute;dico</strong></span></br>
+    <% if @medico.especialidades.length > 0 %>
+        <% @medico.especialidades.each do | e | %>
+            <li><%= e.Nome %></li>
+        <% end %>
+        <hr></hr>
+    <% else %>
+        <span>Este m&eacute;dico ainda n&atilde;o tem especialidade:</span>
+        <hr></hr>
+    <% end %>
+    
+    <hr></hr>
 
-  <%if @especialidade != nil %>
-      <%= @especialidade.each do |esp| %>          
-          <%= esp.Nome %>  <%= check_box_tag  "esp_" + esp.Nome, esp.id, checked = false %><br></br>
-      <% end %>
-  <% end %>
-  
+    <!-- 
+         <span>Especialidades Existentes:</span><br>
+         <%= form.fields_for :especialidades do |especialidade_fields| %>
+         <% if especialidade_fields.object != nil? %>
+         Esp: <%= especialidade_fields.text_field :Nome %>
+         <% end %>
+         <% end %>
+    -->
+
+    <span><strong>Especialidades Existentes:</strong></span><br>
+
+    <% for @item in @especialidade %>
+        <%= check_box_tag  "esp_" + @item.Nome, @item.id, checked = false %><%= @item.Nome %><br></br>
+    <% end %>
+     
+    
+    
+
+    
+    
+    
+
   
   <div class="actions">
     <%= form.submit %>
