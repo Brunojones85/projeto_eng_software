@@ -5,11 +5,13 @@ RSpec.describe "especialidades/index", type: :view do
     assign(:especialidades, [
       Especialidade.create!(
         :Nome => "Nome",
-        :Descricao => "Descricao"
+        :Descricao => "Descricao", 
+        :ativo => true
       ),
       Especialidade.create!(
         :Nome => "Nome",
-        :Descricao => "Descricao"
+        :Descricao => "Descricao" , 
+        :ativo =>true 
       )
     ])
   end

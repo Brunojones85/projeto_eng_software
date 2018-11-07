@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :estado do
-    simbolo { "MyString" }
-    nome { "MyString" }
+    sigla { "SP" }
+    nome { "SAO PAULO" }
   end
 end

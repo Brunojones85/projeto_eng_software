@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Agendamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Local</th>
+      <th>Local Estado</th>
+      <th>Local Cidade</th>
+      <th>Especialidade</th>
+      <th>Medico</th>
+      <th>Usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agendamentos.each do |agendamento| %>
+      <tr>
+        <td><%= agendamento.data %></td>
+        <td><%= agendamento.local.nome %></td>
+        <td><%= agendamento.local.cidade.estado.nome %></td>
+        <td><%= agendamento.local.cidade.nome %></td>
+        <td><%= agendamento.especialidade.Nome %></td>
+        <td><%= agendamento.medico.nome %></td>
+        <%if not agendamento.usuario.nil?  %>
+        <td><%= agendamento.usuario.nome %></td>
+        <%else %>
+        <td> Nenhum até o momento </td>
+        <%end%>
+        <td><%= link_to 'Show', agendamento %></td>
+        <td><%= link_to 'Edit', edit_agendamento_path(agendamento) %></td>
+        <td><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agendamento', new_agendamento_path %>

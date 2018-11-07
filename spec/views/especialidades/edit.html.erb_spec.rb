@@ -4,7 +4,8 @@ RSpec.describe "especialidades/edit", type: :view do
   before(:each) do
     @especialidade = assign(:especialidade, Especialidade.create!(
       :Nome => "MyString",
-      :Descricao => "MyString"
+      :Descricao => "MyString",
+      :ativo => true
     ))
   end
 

@@ -1,0 +1,61 @@
+<%= form_with(model: agendamento, local: true) do |form| %>
+  <% if agendamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agendamento.errors.count, "error") %> prohibited this agendamento from being saved:</h2>
+
+      <ul>
+      <% agendamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.datetime_field :data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_id %><br />
+    <%= form.collection_select( :local_id, Local.all, :id, :nome,  {:prompt => true}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medico_id %><br />
+    <%= form.collection_select( :medico_id, Medico.all, :id, :nome,  {:prompt => true}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :especialidade_id %><br />
+    <%= form.collection_select( :especialidade_id, Especialidade.where(:id => @especialidade), :id, :Nome,  {:prompt => true}) %>
+</div>
+
+  <div class="field">
+    <%= form.label :usuario_id %><br />
+    <%= form.collection_select( :usuario_id, Usuario.all, :id, :nome,  {:prompt => true}) %>
+  </div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+   $("#agendamento_medico_id").change(function() {
+      getEspecialidades("id="+$("#agendamento_medico_id").val());
+    });
+  });
+
+  function getEspecialidades(id) {
+    $.getJSON("/carrega_especialidades", id, function(j) {
+      var options = '<option value="">Por favor, selecione</option>';
+      $.each(j.esp, function(i, item) {
+        options += '<option value="' + item.id + '">' + item.n + '</option>';
+      });
+      $("#agendamento_especialidade_id").html(options);
+    });
+  }
+</script>

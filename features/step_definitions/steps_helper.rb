@@ -45,7 +45,7 @@ def fazer_login_Adm
   #o cucumber nao fica nada feliz com isso
   #por equanto tesmos certeza que \"pido - ACESSAR\" testa o que a gente quer
   #ate que consigamos resolver essa questao dos acentos no cubumber
-  #expect(page).to have_content("Agende Rápido - ACESSAR");
+  #expect(page).to have_content("Agende Rï¿½pido - ACESSAR");
   expect(page).to have_content("pido - ACESSAR");
   fill_in "usuario_email", :with => @administrador[:email]
   fill_in "usuario_password", :with => @administrador[:password]
@@ -147,6 +147,7 @@ def preencherCamposMedico(objeto)
 end
 
 def cria_local_valido
+  cria_cidade
   @localvalido = {
     :nome => Faker::Company.name,
     :cep => Faker::Address.zip_code,
@@ -192,3 +193,57 @@ def medico_sem_dado_no_form
 end
 
 
+def cria_info_agendamento_valido
+  valid_attributes = {
+      data: DateTime.now(),
+      local_id:  FactoryBot.create(:local).id,
+      especialidade_id: FactoryBot.create(:especialidade).id,
+      medico_id:  FactoryBot.create(:medico).id,
+      usuario_id: FactoryBot.create(:usuario).id
+  }
+
+  @agendamento_valido = Agendamento.create! valid_attributes
+end
+def cria_estado
+  estado = FactoryBot.create(:estado)
+  estado.save!
+  @estado = estado
+end
+def cria_cidade
+  cria_estado
+  cidade =  FactoryBot.create(:cidade, estado: @estado)
+  cidade.save!
+  @cidade = cidade
+end
+
+def cria_local
+  cria_cidade
+  local = FactoryBot.create(:local, cidade: @cidade)
+  local.save!
+  @local = local
+end
+def cria_especialidade
+  especialidade = FactoryBot.create(:especialidade)
+  especialidade.Nome= "Oftalmologista"
+  especialidade.save!
+  @especialidade = especialidade
+end
+def cria_medico
+  medico =  FactoryBot.create(:medico)
+  medico.especialidades << @especialidade
+  medico.save!
+  @medico = medico
+end
+def cria_registro_agendamento_valido
+  cria_local
+  cria_especialidade
+  cria_medico
+  agendamento = Agendamento.new
+  agendamento.medico = @medico
+  agendamento.local = @local
+  agendamento.especialidade = @especialidade
+  agendamento.data = DateTime.now() + 100
+  agendamento.usuario = nil
+  agendamento.save!
+  @agendamento_valido = agendamento
+end

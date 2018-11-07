@@ -10,7 +10,7 @@ gem 'faker'
 gem 'cpf_faker'
 gem 'pry'
 #authentication
-
+gem 'ransack'
 gem 'devise'
 gem 'jquery-rails'
 
