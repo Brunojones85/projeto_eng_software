@@ -78,7 +78,7 @@
 
     <span><strong>Especialidades Existentes:</strong></span><br>
 
-    <% if (@especialidade.count == 0) %>
+    <% if (@especialidade == nil) %>
         <%= "Nao exitem especialidades cadastradas" %>
     <% else %>    
         <% for @item in @especialidade %>
