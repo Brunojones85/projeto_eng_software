@@ -13,7 +13,7 @@ Given("Eu sou um usuario existente") do
 end
 
 Given("Eu nao estou logado") do
-  #visit '/usuarios/sign_out'
+  expect(1==1)#visit '/usuarios/sign_out'
 end
 
 When("Eu logo com credenciais validas") do

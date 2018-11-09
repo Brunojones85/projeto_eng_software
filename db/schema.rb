@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_022128) do
+ActiveRecord::Schema.define(version: 2018_11_03_222342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agendamentos", force: :cascade do |t|
+    t.datetime "data"
+    t.bigint "local_id"
+    t.bigint "especialidade_id"
+    t.bigint "medico_id"
+    t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["especialidade_id"], name: "index_agendamentos_on_especialidade_id"
+    t.index ["local_id"], name: "index_agendamentos_on_local_id"
+    t.index ["medico_id"], name: "index_agendamentos_on_medico_id"
+    t.index ["usuario_id"], name: "index_agendamentos_on_usuario_id"
+  end
 
   create_table "cidades", force: :cascade do |t|
     t.string "nome"
@@ -88,5 +102,9 @@ ActiveRecord::Schema.define(version: 2018_10_22_022128) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agendamentos", "especialidades"
+  add_foreign_key "agendamentos", "locais"
+  add_foreign_key "agendamentos", "medicos"
+  add_foreign_key "agendamentos", "usuarios"
   add_foreign_key "cidades", "estados"
 end

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @agendamento.data %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @agendamento.local.nome %>
+</p>
+
+<p>
+  <strong>Especialidade:</strong>
+  <%= @agendamento.especialidade.Nome %>
+</p>
+
+<p>
+  <strong>Medico:</strong>
+  <%= @agendamento.medico.nome %>
+</p>
+
+<%if not @agendamento.usuario.nil?  %>
+<p>
+  <strong>Usuario:</strong>
+  <%= @agendamento.usuario.nome %>
+</p>
+<%end%>
+
+<%= link_to 'Edit', edit_agendamento_path(@agendamento) %> |
+<%= link_to 'Back', agendamentos_path %>
