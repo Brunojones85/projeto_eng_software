@@ -310,11 +310,8 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-controller-testing
   rails-i18n
-<<<<<<< HEAD
   rdoc
-=======
   ransack
->>>>>>> 7a38e3f8ecaa3e4237983378488ad5e20340e3f1
   rspec-html-matchers
   rspec-rails
   sass-rails (~> 5.0)

@@ -14,3 +14,4 @@ exclude_patterns:
 - "spec/controllers/locais_controller_spec.rb"
 - "spec/controllers/usuarios_controller_spec.rb"
 - "db/migrate/"
+- "doc/js/"
