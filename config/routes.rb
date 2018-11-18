@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
   resources :locais
 
+  get "/administrar", to: "telaadmin#index"
+
   get "/agendar", to: "consulta#index"
   get "/carrega_cidade" , to: "locais#carrega_cidade"
   get "/carrega_especialidades" , to: "agendamentos#carrega_especialidades"
