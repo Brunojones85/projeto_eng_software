@@ -34,7 +34,7 @@ RSpec.describe LocaisController, type: :controller do
       cep: Faker::Address.zip_code,
       rua: Faker::Address.street_name,
       numero: Faker::Address.building_number,
-      cidade_id: 1 ,
+      cidade_id: FactoryBot.create(:cidade).id, 
       bairro: Faker::Address.community,
       telefone: Faker::PhoneNumber.phone_number,
       ativo: true
@@ -125,7 +125,7 @@ RSpec.describe LocaisController, type: :controller do
           rua: Faker::Address.street_name,
           numero: Faker::Address.building_number,
 
-          cidade_id: 2 ,
+          cidade_id: FactoryBot.create(:cidade).id,
           bairro: Faker::Address.community,
           telefone: Faker::PhoneNumber.phone_number,
           ativo: true

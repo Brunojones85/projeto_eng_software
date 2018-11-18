@@ -7,7 +7,7 @@ RSpec.describe Local, type: :model do
         cep: Faker::Address.zip_code,
         rua: Faker::Address.street_name,
         numero: Faker::Address.building_number,
-        cidade: Cidade.find(1),
+        cidade: FactoryBot.create(:cidade),
         bairro: Faker::Address.community,
         telefone: Faker::PhoneNumber.phone_number,
         ativo: true
