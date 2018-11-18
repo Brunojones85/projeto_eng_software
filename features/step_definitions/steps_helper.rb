@@ -247,3 +247,18 @@ def cria_registro_agendamento_valido
   agendamento.save!
   @agendamento_valido = agendamento
 end
+
+
+def  cria_usuario_sem_consultas
+  usuario = FactoryBot.create(:usuario)
+  usuario.save!
+  @usuario = usuario
+end
+
+
+def  cria_usuario_com_consultas
+  cria_usuario_sem_consultas
+  cria_registro_agendamento_valido
+  @agendamento_valido.usuario = @usuario
+  @agendamento_valido.save!
+end
