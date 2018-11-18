@@ -40,6 +40,7 @@ body, html {
 
 		     <%= link_to "Agendar uma Consulta", "/agendar", :method => :get %>
 		     <%= link_to "Cancelar uma Consulta" %>
+         <%= link_to "Minhas Consultas", usuario_agendamentos_path(current_usuario), :method => :get %>
 		     <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
 		     <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
 
