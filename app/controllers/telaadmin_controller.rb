@@ -1,0 +1,2 @@
+class TelaadminController < ApplicationController
+end

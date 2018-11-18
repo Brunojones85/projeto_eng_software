@@ -1,0 +1,64 @@
+// Place all the styles related to the Tela do Administrador controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+    margin: 0;
+}
+
+a{
+    color: black;
+}
+
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("robo.jpg");
+    min-height: 100%;
+
+}
+
+.bgimg-2 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("team2.jpg");
+    height: 100%;
+    width: 100%;
+  
+}
+
+.bgimg-3 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("team3.jpg");
+    height: 100%;
+    width: 100%;
+  
+}
+
+.bgimg-4 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("team4.jpg");
+    height: 100%;
+    width: 100%;
+  
+}
+
+.bgimg-5 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("team5.jpg");
+    height: 100%;
+    width: 100%;
+  
+}
+
+.header{
+    text-align: right;
+    font-size: 24px;
+
+}
+
+
