@@ -1,32 +1,48 @@
-<%= form_with(model: especialidade, local: true) do |form| %>
-  <% if especialidade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(especialidade.errors.count, "error") %> prohibited this especialidade from being saved:</h2>
+<%= form_for @especialidade, :html => { :class => "form-horizontal especialidade" } do |f| %>
 
-      <ul>
-      <% especialidade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @especialidade.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">Verifique os erros abaixo impediram que o registro seja salvo.:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @especialidade.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :Nome %>
-    <%= form.text_field :Nome %>
+  <div class="form-group">
+    <%= f.label :Nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-5">
+      <%= f.text_field :Nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:Nome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Descricao, :class => 'control-label col-lg-2' %>
+     <div class="col-lg-5">
+      <%= f.text_field :Descricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:Descricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ativo, :class => 'control-label col-lg-2' %>
+     <div class="col-lg-5">
+      <%= f.check_box :ativo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ativo) %>
   </div>
 
-  <div class="field">
-    <%= form.label :Descricao %>
-    <%= form.text_field :Descricao %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                especialidades_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-<div class="field">
-    <%= form.label :Ativo %>
-    <%= form.check_box :ativo %>
-  </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
