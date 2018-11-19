@@ -1,37 +1,25 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Agendamentos</h1>
-<% if  @agendamentos != nil and @agendamentos.length > 0   %>
-
+<% if  @agendamentos != nil and @agendamentos.length > 0 %>
     <% @agendamentos.each do |agendamento| %>
-
-    <div>
-    <p> Local: </p>
-    <p><%= agendamento.local.nome %> </p>
-    <p><%= agendamento.local.cidade.estado.nome %></p>
-    <p><%= agendamento.local.cidade.nome %></p>
-    <p> Medico: </p>
-    <p><%= agendamento.medico.nome %></p>
-    <p> Especialidade:
-    <p><%= agendamento.especialidade.Nome %></p>
-    <p>CRM:</p>
-    <p><%= agendamento.medico.crm %></p>
-    <p> DATA: </p>
-    <p> <%= agendamento.data %> </p>
-    <br>
-    </div>
+    <div class="w3-container w3-card-4">
+    <p> Local: <%= agendamento.local.nome %>  - <%= agendamento.local.cidade.nome %> - <%= agendamento.local.cidade.estado.nome %> </p>
+    <p> Medico: <%= agendamento.medico.nome %></p>
+    <p> Especialidade:<%= agendamento.especialidade.Nome %></p>
+    <p>CRM: <%= agendamento.medico.crm %></p>
+    <p> DATA: <%= agendamento.data %> </p>
 
     <%if not agendamento.usuario.nil?  %>
     <p><%= agendamento.usuario.nome %></p>
     <%else %>
+    <p> Usuário </p>
     <p> Nenhum até o momento </p>
     <p><%= link_to 'Show', agendamento %></p>
     <p><%= link_to 'Edit', edit_agendamento_path(agendamento) %></p>
     <p><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <%end%>
-
+    </div>
     <% end %>
-
 <%else %>
 <p> Não existem dados de agendamentos cadastrados! </p>
 <%end %>

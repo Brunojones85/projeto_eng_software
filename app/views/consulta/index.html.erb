@@ -58,13 +58,14 @@
 <% if @agendamentos != nil %>
   <% @agendamentos.each do |agendamento| %>
 
-  <div>
+  <div class ="w3-panel w3-green w3-card-4">
   <p> Local: <%= agendamento.local.nome %> </p>
   <p> Medico: <%= agendamento.medico.nome %> </p>
   <p> Especialidade: <%= agendamento.especialidade.Nome %> </p>
   <p> CRM: <%= agendamento.medico.crm %> </p>
   <p> DATA: <%= agendamento.data %> </p>
-  <br>
+
+  <p><%= link_to "Marcar Consulta", realizar_agendamento_path(:usuario_id => current_usuario.id, :agendamento_id=> agendamento.id ),  method: :post %><p>
   </div>
 
   <% end %>

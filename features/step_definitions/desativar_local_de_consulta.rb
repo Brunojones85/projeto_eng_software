@@ -3,14 +3,7 @@ require 'selenium-webdriver'
 require 'pry'
 Dado("que eu criei um local de consulta") do
   cria_local_valido
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.javascript_driver = :chrome
-  Capybara.configure do |config|
-    config.default_max_wait_time = 10 # seconds
-    config.default_driver        = :selenium
-  end
+  configura_capybara
   puts "NOME DA CIDADE: "
   puts @cidade.nome
   visit "/locais/new"

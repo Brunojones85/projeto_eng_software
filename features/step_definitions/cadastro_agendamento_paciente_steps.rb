@@ -12,14 +12,7 @@ Então("eu vou ver uma mensagem indicando a obrigatoriedade dos filtros") do
 end
 
 Dado("que existam dados de agendamento cadastrados") do
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.javascript_driver = :chrome
-  Capybara.configure do |config|
-    config.default_max_wait_time = 10 # seconds
-    config.default_driver        = :selenium
-  end
+  configura_capybara
   cria_registro_agendamento_valido
 end
 
