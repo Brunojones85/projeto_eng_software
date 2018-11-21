@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ Ortopedista:
+  id: 1
+  nome: ortopedista
+  descricao: ossos e articulacoes
+  ativo: sim
+
+ Oftalmologia:
+  id: 2
+  nome: oftalmologia
+  descricao: olhos
+  ativo: sim
+
+ Oftalmologia:
+  id: 3
+  nome: geriatria
+  descricao: envelhecimento
+  ativo: sim
+
+

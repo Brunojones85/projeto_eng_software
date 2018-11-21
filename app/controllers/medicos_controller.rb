@@ -79,7 +79,9 @@ class MedicosController < ApplicationController
     verifica_se_usuario_logado_e_admin
     respond_to do |format|
       if @medico.update(medico_params)
-        checa_se_ha_params_que_sao_especialidades_e_atribui_ao_medico(params)
+        colhe_especialidades_from_params(params)
+        atribui_especialidades_nao_repetidas_ao_medico()        
+
         format.html { redirect_to @medico, notice: 'Medico was successfully updated.' }
         format.json { render :show, status: :ok, location: @medico }
       else
@@ -89,6 +91,50 @@ class MedicosController < ApplicationController
     end
   end
 
+
+  def colhe_especialidades_from_params(parametros)
+    @especialidades_from_params = Array.new
+    i = -1
+    @params = parametros
+    @params.each do |p|
+      if p[0].start_with?("esp");
+        i = i + 1;
+        oEsp = Especialidade.find(p[1])
+        @especialidades_from_params[i] = oEsp
+      end                          
+    end
+  end
+
+  def atribui_especialidades_nao_repetidas_ao_medico()
+    #https://apidock.com/rails/ActiveRecord/Associations/CollectionProxy
+    if !@medico.especialidades.any?
+      for esp_from_param in @especialidades_from_params do
+        #caso o medico nao tenha nehuma especialidade nao ha comparacoes a ser feitas
+        #apenas atribuimos a especialidade a ele e pronto
+        #if !esp_from_param.nil?
+        @medico.especialidades << esp_from_param
+        # end
+      end
+    else
+      #mas se o medico ja tem alguma especialidade, entao nao he so atribuir
+      #precisa realizar comparacoes pra nao atribuir especialidades que ele ja tem
+      for esp_from_param in @especialidades_from_params do
+        puts "###[medicos_controller.rb] for esp_from_param in @especialidades_from_params do.."
+        for esp_do_medico in @medico.especialidades  do
+          #if !esp_from_param.nil? && ( esp_from_param.id == esp_do_medico.id)
+          medico_tem_essa = false
+          if esp_from_param.id == esp_do_medico.id
+            medico_tem_essa = true
+            break
+          end
+        end
+        if !medico_tem_essa
+          @medico.especialidades << esp_from_param
+        end
+      end #for
+    end
+  end #def
+  
   def checa_se_ha_params_que_sao_especialidades_e_atribui_ao_medico(parametros)
     @params = parametros
     @params.each do |p|

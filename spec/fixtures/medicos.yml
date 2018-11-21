@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ medico1:
+   nome: Nomemed1
+   crm: CrmMed1
+   local: LocalMed1
+   telefone: TelMed1
+   celular: CelMed1
+   email: Email@Med1
+   sexo: M
+   situacao: ativo
+
+ medico2:
+   id: 2
+   nome: Nomemed2
+   crm: CrmMed2
+   local: LocalMed2
+   telefone: TelMed2
+   celular: CelMed2
+   email: Email@Med2
+   sexo: M
+   situacao: ativo
+
+ medico3ComDuasEspecIguais:
+   id: 3
+   nome: Nomemed3
+   crm: CrmMed3
+   local: LocalMed3
+   telefone: TelMed3
+   celular: CelMed3
+   email: Email@Med3
+   sexo: M
+   situacao: ativo
+
+     
