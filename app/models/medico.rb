@@ -1,5 +1,5 @@
 class Medico < ApplicationRecord
-  has_and_belongs_to_many :especialidades
+  has_and_belongs_to_many :especialidades 
   accepts_nested_attributes_for :especialidades
   validates_presence_of :nome, :message => "- Campo obrigatorio"
 

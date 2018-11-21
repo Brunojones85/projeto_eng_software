@@ -45,6 +45,7 @@ RSpec.describe MedicosController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Medico. As you add validations to Medico, be sure to
   # adjust the attributes here as well.
+  
   let(:valid_attributes) {
     {
       nome: "NomeMedico",
@@ -81,7 +82,7 @@ RSpec.describe MedicosController, type: :controller do
 
    
   describe "GET #index" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     it "returns a success response" do      
       usuarioAdmin = usuarios(:usuarioAdmin)
       sign_in usuarioAdmin 
@@ -93,7 +94,7 @@ RSpec.describe MedicosController, type: :controller do
   end
 
   describe "GET #show" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     it "returns a success response" do
       usuarioAdmin = usuarios(:usuarioAdmin)
       sign_in usuarioAdmin 
@@ -104,17 +105,18 @@ RSpec.describe MedicosController, type: :controller do
   end
 
   describe "GET #new" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     it "returns a success response" do      
       usuarioAdmin = usuarios(:usuarioAdmin)
       sign_in usuarioAdmin 
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
     end
+    
   end
 
   describe "GET #edit" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     it "returns a success response" do
       usuarioAdmin = usuarios(:usuarioAdmin)
       sign_in usuarioAdmin 
@@ -125,7 +127,7 @@ RSpec.describe MedicosController, type: :controller do
   end
 
   describe "POST #create" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     context "with valid params" do
       it "creates a new Medico" do
       usuarioAdmin = usuarios(:usuarioAdmin)
@@ -141,7 +143,7 @@ RSpec.describe MedicosController, type: :controller do
         expect(response).to be_successful
       end
     end
-
+    
     context "with invalid params" do
       fixtures :usuarios      
       it "criar um medico com parametros invalidos" do
@@ -156,7 +158,7 @@ RSpec.describe MedicosController, type: :controller do
   end
 
   describe "PUT #update" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     
     context "with valid params" do
       let(:new_attributes_4PUT) {
@@ -201,7 +203,7 @@ RSpec.describe MedicosController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    fixtures :usuarios
+    fixtures :usuarios, :medicos
     it "destroys the requested medico" do
       usuarioAdmin = usuarios(:usuarioAdmin)
       sign_in usuarioAdmin               

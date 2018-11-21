@@ -24,6 +24,11 @@ When("Eu acesso pagina de criar um novo medico") do
    expect(page).to have_content("Cadastrar Novo Medico");
 end
 
+When("Eu acesso pagina de criar um novo medico sem estar logado") do
+   visit '/medicos/new'
+end
+
+
 When("envio o formulario de medico com dados validos") do
   cria_administrador
   fazer_login_Adm
@@ -100,12 +105,88 @@ end
 #end
 
 Then("sou redirecionada para a pagina de login de usuario") do
-  cria_convidado
-  visit '/'
-  find(:xpath,"/html/body/div[2]/div/div[1]/a[4]").click;        
+  #cria_convidado
+  #cria_convidado
+  #visit '/'
+  #visit '/usuarios/sign_out"'
+  #find(:xpath,"/html/body/div[2]/div/div[1]/a[4]").click;        
   visit '/medicos/new'
   expect(page).to have_content("pido - ACESSAR");
   expect(page).to have_content("Esqueceu sua senha?");
   expect(page).to have_content("Criar sua conta");
 end
 
+
+# Cenario: Editar Medico com especialidade repetida
+
+When("Eu cadastro uma especialidade") do
+  cria_administrador
+  fazer_login_Adm
+  visit '/especialidades/new'
+  cria_especialidade_valida
+  preencherCamposEspecialidade(@especialidadevalida)
+  #Qdo configura o bootstrap na pagina o xpath muda
+  find(:xpath, "/html/body/form/div[4]/input").click
+  expect(page).to have_content("Especialidade was successfully created.")
+end
+
+When("Eu cadastro um medico com esta especialidade") do
+  #os passos que criam a especialidade estao repedidos aqui
+  #porque o cucumber permite controlar o estado da aplicacao "entre paginas"
+  #apenas dentro de um passo e nao entre passos.
+  #apesar do problema do DRY essa operacao esta testada no passo anterior
+
+  #cadastra a especialidade
+  #cria_administrador
+  #fazer_login_Adm
+  #visit '/especialidades/new'
+  #cria_especialidade_valida
+  #preencherCamposEspecialidade(@especialidadevalida)
+  #Qdo configura o bootstrap na pagina o xpath muda
+  #find(:xpath, "/html/body/form/div[4]/input").click
+
+  #incrivelmente funcionou entre passos... deixei os comentarios aqui pra
+  #levantar essa questao...
+  #cadastra um medico, agora com a especialidade cadastrada anteriormente
+  visit '/medicos/new'
+  expect(page).to have_content("Cadastrar Novo Medico");
+  cria_medico_valido
+  preencherCamposMedicoESelecionaUmaEspecialidade(@medicovalido)
+
+  #page.should have_css('#esp_ortopedista[value='1']')  
+  find(:css, "#esp_EspecialidadeBemIncomumPraTeste").set(true)  
+  find(:xpath, "/html/body/div/div/form/div[9]/input").click
+  expect(page).to have_content("Medico was successfully created.")
+  expect(page).to have_content("Voltar")
+  page.should have_css("a[href='/medicos']")
+  expect(page).to have_content("EspecialidadeBemIncomumPraTeste") #Significa que o medico tem essa especialidade
+  find(:css, "a[href='/medicos']").click
+end
+
+When("Eu clico em voltar para ir ate a pagina que lista medicos") do
+  visit '/medicos'
+  expect(page).to have_content("EspecialidadeBemIncomumPraTeste") #Significa que o medico tem essa especialidade
+  expect(page).to have_content("Medico X2"); # que he o nome do medico que eu cadastrei nos passos anteriore
+end
+
+When("Eu clico em editar o medico que eu inseri") do
+  expect(page).to have_content("Medico X2") # o ultimo medico valido inserido tem esse nome
+  expect(page).to have_content("EspecialidadeBemIncomumPraTeste") #A o medico tinha sido editado pra ter essa especialidade
+  #Aqui a gente clica no editar do metido que inserimos
+  find(:xpath, "/html/body/div/div/table/tbody/tr[4]/td[11]/a").click #fix-me: Deveria haver so um medico listado, tem 4
+end
+
+When("Eu seleciono a mesma especialidade existente que o medico ja tem") do
+  #Na pagina de edicao do medico a gente seleciona a mesma especialidade que o medico ha tem pra adicionar ela de novo
+  find(:xpath,"//*[@id='esp_EspecialidadeBemIncomumPraTeste']").click
+end
+
+When("Eu clico em atualizar medico") do
+  #E clicamos em atualizar 
+  find(:xpath,"/html/body/div/div/form/div[9]/input").click  
+end
+
+Then("Recebo a msg medico atualizado com sucesso mas sem especialidades repetidas") do
+  expect(page).to have_no_content("EspecialidadeBemIncomumPraTeste EspecialidadeBemIncomumPraTeste")
+  expect(page).to have_content("Medico was successfully updated.")
+end

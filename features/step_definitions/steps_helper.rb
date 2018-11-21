@@ -67,8 +67,7 @@ end
 def cria_convidado_nao_logado
   cria_convidado
   exclui_usuario
-  sign_up
-  visit '/users/sign_out'
+  #visit '/usuarios/sign_out'
 end
 
 def cria_usuario
@@ -143,8 +142,34 @@ def preencherCamposMedico(objeto)
   fill_in "medico_email", :with => objeto[:email]
   fill_in "medico_sexo", :with => objeto[:sexo]
   fill_in "medico_situacao", :with => objeto[:situacao]
+end
+
+def preencherCamposMedicoESelecionaUmaEspecialidade(objeto)
+  fill_in "medico_nome", :with => objeto[:nome]
+  fill_in "medico_crm", :with => objeto[:crm]
+  fill_in "medico_local", :with => objeto[:local]
+  fill_in "medico_telefone", :with =>objeto[:telefone]
+  fill_in "medico_celular", :with => objeto[:celular]
+  fill_in "medico_email", :with => objeto[:email]
+  fill_in "medico_sexo", :with => objeto[:sexo]
+  fill_in "medico_situacao", :with => objeto[:situacao]
   #  fill_in "medico_especialidade", :with => objeto[:especialidade]
 end
+
+
+def preencherCamposEspecialidade(objeto)
+  fill_in "especialidade_Nome", :with => objeto[:Nome]
+  fill_in "especialidade_Descricao", :with => objeto[:Descricao]
+  #fix-me: nao preencher o campo ativo seta ele como false
+  #vou deixar assim por enquanto porque nao influencia no teste
+  #entretanto, tem um problema na geracao do html que nao deixa o capybara
+  #encontrar o checkbox. O problema he que no label for ta como especialidade_Ativo
+  #e o id do checkbox ta especialidade_ativo (com o a minusculo)
+  #https://stackoverflow.com/questions/23280642/how-to-get-capybara-to-check-a-checkbox-by-its-label
+  #fill_in "especialidade_ativo", :with => objeto[:ativo]
+end
+
+
 
 def cria_local_valido
   cria_cidade
@@ -183,6 +208,15 @@ def cria_medico_valido
     :email =>  Faker::Internet.email,
     :sexo => Faker::Gender.binary_type,
     :situacao => Faker::String
+  }
+end
+
+#Ativo recebe 1 porque no form ele he um checkbox
+def cria_especialidade_valida
+  @especialidadevalida = {
+    :Nome => "EspecialidadeBemIncomumPraTeste",
+    :Descricao => "especdiferente",
+    :ativo => 1 
   }
 end
 
