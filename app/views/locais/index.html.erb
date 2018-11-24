@@ -1,8 +1,16 @@
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - Listar Locais de Consultas</h1>
+</header>
+
+<div class="w3-container w3-quarter{float:left;width:100%} w3-margin-top">
+<div class="w3-container w3-card-4">
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Locais</h1>
 
-<table>
+<table class="w3-table-all">
   <thead>
     <tr>
       <th>Nome</th>
@@ -30,9 +38,9 @@
         <td class='cidade'><%= local.cidade.nome %></td>
         <td class='bairro'><%= local.bairro %></td>
         <td class='telefone'><%= local.telefone %></td>
-        <td class='Show'><%= link_to 'Show', local %></td>
-        <td class='Edit'><%= link_to 'Edit', edit_local_path(local) %></td>
-        <td class='Destroy'><%= link_to 'Destroy', local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='Show'><%= link_to 'Mostrar', local %></td>
+        <td class='Edit'><%= link_to 'Editar', edit_local_path(local) %></td>
+        <td class='Destroy'><%= link_to 'Excluir', local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
