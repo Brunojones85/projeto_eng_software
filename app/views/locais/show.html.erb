@@ -1,7 +1,14 @@
+<header class="w3-container w3-teal">
+  <h1>Agende R&aacute;pido - Visualizar Local de Consulta</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+<div class="w3-container w3-card-4">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
+  <strong>Nome:  </strong>
   <%= @local.nome %>
 </p>
 
@@ -40,5 +47,5 @@
   <%= @local.telefone %>
 </p>
 
-<%= link_to 'Edit', edit_local_path(@local) %> |
-<%= link_to 'Back', locais_path %>
+<%= link_to 'Editar', edit_local_path(@local) %> |
+<%= link_to 'Voltar', locais_path %>
