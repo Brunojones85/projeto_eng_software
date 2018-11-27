@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Especialidade -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @especialidade.Nome %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Nome) %>:</strong></dt>
+  <dd><%= @especialidade.Nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Descricao) %>:</strong></dt>
+  <dd><%= @especialidade.Descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ativo) %>:</strong></dt>
+  <dd><%= @especialidade.ativo %></dd>
+</dl>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @especialidade.Descricao %>
-</p>
-
-<p>
-  <strong>Ativo:</strong>
-  <%= @especialidade.ativo %>
-</p>
-
-<%= link_to 'Edit', edit_especialidade_path(@especialidade) %> |
-<%= link_to 'Back', especialidades_path %>
+<%= link_to t('.Voltar', :default => t("Voltar")),
+              especialidades_path, :class => 'btn btn-default'  %>
+<%= link_to t('.Editar', :default => t("Editar")),
+              edit_especialidade_path(@especialidade), :class => 'btn btn-default' %>
+<%= link_to t('.Apagar', :default => t("Apagar")),
+              especialidade_path(@especialidade),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("Você tem certeza que deseja apagar esta especialidade ?", :default => 'Você tem certeza que deseja apagar esta especialidade ?')) },
+              :class => 'btn btn-danger' %>

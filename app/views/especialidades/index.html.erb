@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Especialidades</h1>
-
-<table>
+<%- model_class = Especialidade -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Descricao</th>
-      <th>Ativo</th>
-      <th colspan="4"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:Nome) %></th>
+      <th><%= model_class.human_attribute_name(:Descricao) %></th>
+      <th><%= model_class.human_attribute_name(:ativo) %></th>
+      
     </tr>
   </thead>
-
   <tbody>
     <% @especialidades.each do |especialidade| %>
       <tr>
+        <td><%= link_to especialidade.id, especialidade_path(especialidade) %></td>
         <td><%= especialidade.Nome %></td>
         <td><%= especialidade.Descricao %></td>
         <td><%= especialidade.ativo %></td>
-        <td><%= link_to 'Show', especialidade %></td>
-        <td><%= link_to 'Edit', edit_especialidade_path(especialidade) %></td>
-        <td><%= link_to 'Destroy', especialidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+        <td>
+          <%= link_to t('.show', :default => t("Exibir")),
+                      especialidade_path(especialidade), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("Editar")),
+                      edit_especialidade_path(especialidade), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("Apagar")),
+                      especialidade_path(especialidade),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza que deseja apagar o item?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Especialidade', new_especialidade_path %>
+<%= link_to t('.new', :default => t("Novo")),
+            new_especialidade_path,
+            :class => 'btn btn-primary' %>
