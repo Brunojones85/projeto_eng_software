@@ -3,13 +3,14 @@
 <% if  @agendamentos != nil and @agendamentos.length > 0 %>
     <% @agendamentos.each do |agendamento| %>
     <div class="w3-container w3-card-4">
-    <p> Local: <%= agendamento.local.nome %>  - <%= agendamento.local.cidade.nome %> - <%= agendamento.local.cidade.estado.nome %> </p>
+    <p> Local: <%= agendamento.local.nome %> - <%= agendamento.local.cidade.nome %> - <%= agendamento.local.cidade.estado.nome %> </p>
     <p> Medico: <%= agendamento.medico.nome %></p>
-    <p> Especialidade:<%= agendamento.especialidade.Nome %></p>
-    <p>CRM: <%= agendamento.medico.crm %></p>
+    <p> Especialidade: <%= agendamento.especialidade.Nome %></p>
+    <p> CRM: <%= agendamento.medico.crm %></p>
     <p> DATA: <%= agendamento.data %> </p>
 
     <%if not agendamento.usuario.nil?  %>
+    <p> Usuário </p>
     <p><%= agendamento.usuario.nome %></p>
     <%else %>
     <p> Usuário </p>

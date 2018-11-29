@@ -2,12 +2,9 @@ require_relative "steps_helper"
 require 'selenium-webdriver'
 require 'pry'
 Dado("que eu criei um local de consulta") do
-  cria_local_valido
   configura_capybara
-  puts "NOME DA CIDADE: "
-  puts @cidade.nome
+  cria_local_valido
   visit "/locais/new"
-
   preencherCamposLocal(@localvalido)
 #  binding.pry
   find('#estado_id > option:nth-child(2)').click

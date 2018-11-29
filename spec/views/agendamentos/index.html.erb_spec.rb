@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe "agendamentos/index", type: :view do
   before(:each) do
     @agendamentos = assign(:agendamentos, [

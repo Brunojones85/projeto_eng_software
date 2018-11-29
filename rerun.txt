@@ -1,6 +1,0 @@
-features/cadastro_de_medico.feature:4:11:25
-features/cadastro_de_usuario.feature:5
-features/desativar_local_de_consulta.feature:7
-features/excluir_local_de_consulta.feature:8
-features/incluir_local_de_consulta.feature:8:13
-features/login_valido.feature:5

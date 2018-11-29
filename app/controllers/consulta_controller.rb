@@ -4,7 +4,6 @@ class ConsultaController < ApplicationController
   def index
   end
 
-
   def realizar_agendamento
     usuario = Usuario.find(params[:usuario_id])
     agendamento = Agendamento.find(params[:agendamento_id])
@@ -18,7 +17,7 @@ class ConsultaController < ApplicationController
     if params[:q] != nil and params[:q]["local_cidade_id_eq"] != '' and params[:q]["especialidade_id_eq"] != ''
       @agendamentos = @q.result.order(:data)
       cidade = Cidade.where(:id => params[:q]["local_cidade_id_eq"].to_s).take
-      @estado = cidade.estado
+      @estados = cidade.estado
       @local_cidade_id_eq = cidade.id
     else
       @error_message = "É necessário escolher o estado, cidade e especialidade médica para filtrar ! "

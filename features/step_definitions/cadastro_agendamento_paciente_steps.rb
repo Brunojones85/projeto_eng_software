@@ -12,13 +12,16 @@ Então("eu vou ver uma mensagem indicando a obrigatoriedade dos filtros") do
 end
 
 Dado("que existam dados de agendamento cadastrados") do
+
   configura_capybara
+  cria_usuario_agendamento
+  fazer_login
   cria_registro_agendamento_valido
 end
 
 E("eu escolho determinado estado, cidade e especialidade") do
   visit "/agendar"
-  find('#estado_id > option:nth-child(2)').click
+  find('#estados_id > option:nth-child(2)').click
   find('#q_local_cidade_id_eq').find(:xpath, 'option[2]').select_option
   find('#q_especialidade_id_eq').find(:xpath, 'option[2]').select_option
 #  find(:css, '#agendamento_search').click()W
