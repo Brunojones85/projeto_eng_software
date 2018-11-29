@@ -84,7 +84,9 @@ end
 def fazer_login
   visit '/usuarios/sign_in'
   fill_in "usuario_email", :with => @convidado[:email]
-  fill_in "usuario_password", :with => @convidado[:password]
+  puts "EMAIL"
+  puts @convidado[:email]
+  fill_in "usuario_password", :with => "123456" 
   find(:xpath, "/html/body/div/div/form/button").click
 end
 
@@ -178,7 +180,7 @@ def cria_local_valido
     :cep => Faker::Address.zip_code,
     :rua => Faker::Address.street_name,
     :numero => Faker::Address.building_number,
-    :cidade => Faker::Address.city ,
+    :cidade => @cidade,
     :bairro => Faker::Address.community,
     :telefone => Faker::PhoneNumber.phone_number,
     :ativo => true
@@ -280,4 +282,36 @@ def cria_registro_agendamento_valido
   agendamento.usuario = nil
   agendamento.save!
   @agendamento_valido = agendamento
+end
+
+
+def  cria_usuario_sem_consultas
+  usuario = FactoryBot.create(:usuario)
+  usuario.save!
+  @usuario = usuario
+end
+
+
+def  cria_usuario_com_consultas
+  cria_usuario_sem_consultas
+  cria_registro_agendamento_valido
+  @agendamento_valido.usuario = @usuario
+  @agendamento_valido.save!
+end
+def cria_usuario_agendamento
+  usuario = FactoryBot.create(:usuario)
+  usuario.save!
+  @convidado = usuario
+end
+
+def configura_capybara
+  Capybara.register_driver :webdriver do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  Capybara.javascript_driver = :webdriver
+  Capybara.current_driver = :webdriver
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver        = :webdriver
+  end
 end

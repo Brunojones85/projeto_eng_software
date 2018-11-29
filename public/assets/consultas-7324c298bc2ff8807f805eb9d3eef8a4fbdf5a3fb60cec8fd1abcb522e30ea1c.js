@@ -1,0 +1,1 @@
+function getCitiesByState(t){$.getJSON("/carrega_cidade",t,function(t){var i='<option value="">Por favor, selecione</option>';$.each(t.cty,function(t,o){i+='<option value="'+o.id+'">'+o.n+"</option>"}),$("#local_cidade_id").html(i)})}$(document).on("turbolinks:load",function(){$("#estado_id").change(function(){getCitiesByState("id="+$("#estado_id").val())})});

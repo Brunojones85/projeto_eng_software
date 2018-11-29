@@ -8,7 +8,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="/assets/w3.css">
 
 <style>
 
@@ -32,6 +32,7 @@ body, html {
  		<p></p>
 		 <% if usuario_signed_in? %>
 		        Seja bem-vindo <%= current_usuario.nome %> !
+<<<<<<< HEAD
 				
 		     <%= link_to "Agendar uma Consulta" %>
 		     <%= link_to "Cancelar uma Consulta" %>		
@@ -41,6 +42,13 @@ body, html {
 				<%= link_to "  ADMINISTRADOR", "/administrar",:method => :get %>
 				
 			<% end %>	
+=======
+
+		     <%= link_to "Agendar uma Consulta", "/agendar", :method => :get %>
+		     <%= link_to "Cancelar uma Consulta" %>
+         <%= link_to "Minhas Consultas", usuario_agendamentos_path(current_usuario), :method => :get %>
+		     <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
+>>>>>>> feature_agendamento_consulta
 		     <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
 
 		<% else %>

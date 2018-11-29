@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/agendar", to: "consulta#index"
   get "/carrega_cidade" , to: "locais#carrega_cidade"
   get "/carrega_especialidades" , to: "agendamentos#carrega_especialidades"
+  match "/realizar_agendamento" => "consulta#realizar_agendamento", :via => :post
   resources :especialidades
   devise_for :usuarios #do
 

@@ -1,43 +1,32 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Agendamentos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Local</th>
-      <th>Local Estado</th>
-      <th>Local Cidade</th>
-      <th>Especialidade</th>
-      <th>Medico</th>
-      <th>Usuario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% if  @agendamentos != nil and @agendamentos.length > 0 %>
     <% @agendamentos.each do |agendamento| %>
-      <tr>
-        <td><%= agendamento.data %></td>
-        <td><%= agendamento.local.nome %></td>
-        <td><%= agendamento.local.cidade.estado.nome %></td>
-        <td><%= agendamento.local.cidade.nome %></td>
-        <td><%= agendamento.especialidade.Nome %></td>
-        <td><%= agendamento.medico.nome %></td>
-        <%if not agendamento.usuario.nil?  %>
-        <td><%= agendamento.usuario.nome %></td>
-        <%else %>
-        <td> Nenhum até o momento </td>
-        <%end%>
-        <td><%= link_to 'Show', agendamento %></td>
-        <td><%= link_to 'Edit', edit_agendamento_path(agendamento) %></td>
-        <td><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="w3-container w3-card-4">
+    <p> Local: <%= agendamento.local.nome %> - <%= agendamento.local.cidade.nome %> - <%= agendamento.local.cidade.estado.nome %> </p>
+    <p> Medico: <%= agendamento.medico.nome %></p>
+    <p> Especialidade: <%= agendamento.especialidade.Nome %></p>
+    <p> CRM: <%= agendamento.medico.crm %></p>
+    <p> DATA: <%= agendamento.data %> </p>
+
+    <%if not agendamento.usuario.nil?  %>
+    <p> Usuário </p>
+    <p><%= agendamento.usuario.nome %></p>
+    <%else %>
+    <p> Usuário </p>
+    <p> Nenhum até o momento </p>
+    <p><%= link_to 'Show', agendamento %></p>
+    <p><%= link_to 'Edit', edit_agendamento_path(agendamento) %></p>
+    <p><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <%end%>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<%else %>
+<p> Não existem dados de agendamentos cadastrados! </p>
+<%end %>
+<%if @medico == nil and @usuario == nil %>
 <%= link_to 'New Agendamento', new_agendamento_path %>
+<%end %>
+<%if @usuario != nil %>
+<%= link_to "Agendar uma Consulta", "/agendar", :method => :get %>
+<%end %>

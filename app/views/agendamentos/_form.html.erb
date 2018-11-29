@@ -40,22 +40,3 @@
   <%= form.submit %>
 </div>
 <% end %>
-
-
-<script type="text/javascript">
-  $(document).ready(function() {
-   $("#agendamento_medico_id").change(function() {
-      getEspecialidades("id="+$("#agendamento_medico_id").val());
-    });
-  });
-
-  function getEspecialidades(id) {
-    $.getJSON("/carrega_especialidades", id, function(j) {
-      var options = '<option value="">Por favor, selecione</option>';
-      $.each(j.esp, function(i, item) {
-        options += '<option value="' + item.id + '">' + item.n + '</option>';
-      });
-      $("#agendamento_especialidade_id").html(options);
-    });
-  }
-</script>

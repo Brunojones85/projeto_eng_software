@@ -12,13 +12,13 @@
     <td>
       <div class="field">
       <%= label_tag :estado %>
-      <%= collection_select(:estado, :id, Estado.all, :id, :nome, {:prompt => true})  %>
+      <%= collection_select(:estados, :id, Estado.all, :id, :nome, {:prompt => true})  %>
       </div>
     </td>
     <td>
       <div class="field">
       <%= f.label :local_cidade_id_eq %>
-      <%= f.collection_select(:local_cidade_id_eq, Cidade.where(:estado_id => @estado).order(:nome), :id, :nome,  {:prompt => true}) %>
+      <%= f.collection_select(:local_cidade_id_eq, Cidade.where(:estado_id => @estados).order(:nome), :id, :nome,  {:prompt => true}) %>
       </div>
     </td>
   </tr>
@@ -58,33 +58,15 @@
 <% if @agendamentos != nil %>
   <% @agendamentos.each do |agendamento| %>
 
-  <div>
+  <div class ="w3-panel w3-green w3-card-4">
   <p> Local: <%= agendamento.local.nome %> </p>
   <p> Medico: <%= agendamento.medico.nome %> </p>
   <p> Especialidade: <%= agendamento.especialidade.Nome %> </p>
   <p> CRM: <%= agendamento.medico.crm %> </p>
   <p> DATA: <%= agendamento.data %> </p>
-  <br>
+  <p><%= link_to "Marcar Consulta", realizar_agendamento_path(:usuario_id => current_usuario.id, :agendamento_id=> agendamento.id ),  method: :post %><p>
   </div>
-
   <% end %>
 
 <%end%>
 </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-   $("#estado_id").change(function() {
-      getCitiesByState("id="+$("#estado_id").val());
-    });
-  });
-
-  function getCitiesByState(id) {
-    $.getJSON("/carrega_cidade", id, function(j) {
-      var options = '<option value="">Por favor, selecione</option>';
-      $.each(j.cty, function(i, item) {
-        options += '<option value="' + item.id + '">' + item.n + '</option>';
-      });
-      $("#q_local_cidade_id_eq").html(options);
-    });
-  }
-</script>

@@ -7,7 +7,7 @@ RSpec.describe "locais/show", type: :view do
       :cep => "Cep",
       :rua => "Rua",
       :numero => "Numero",
-      :cidade => Cidade.find(1),
+      :cidade =>  FactoryBot.create(:cidade),
       :bairro => "Bairro",
       :telefone => "Telefone",
       :ativo => true

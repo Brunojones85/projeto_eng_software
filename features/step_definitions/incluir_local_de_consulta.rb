@@ -10,14 +10,7 @@ Quando("acesso a página de cadastro de local de consulta") do
 end
 
 Quando("faço a submissão do formulário com dados válidos") do
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.javascript_driver = :chrome
-  Capybara.configure do |config|
-    config.default_max_wait_time = 10 # seconds
-    config.default_driver        = :selenium
-  end
+  configura_capybara
   cria_local_valido
 
 end
