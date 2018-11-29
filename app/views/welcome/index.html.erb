@@ -32,23 +32,13 @@ body, html {
  		<p></p>
 		 <% if usuario_signed_in? %>
 		        Seja bem-vindo <%= current_usuario.nome %> !
-<<<<<<< HEAD
-				
-		     <%= link_to "Agendar uma Consulta" %>
-		     <%= link_to "Cancelar uma Consulta" %>		
-		     <%= link_to "   Minha Conta", edit_usuario_registration_path, :method => :get %>
-			<% if ( (usuario_signed_in?) && (current_usuario.nome  == 'admin' ) ) %>
 
-				<%= link_to "  ADMINISTRADOR", "/administrar",:method => :get %>
-				
-			<% end %>	
-=======
 
 		     <%= link_to "Agendar uma Consulta", "/agendar", :method => :get %>
 		     <%= link_to "Cancelar uma Consulta" %>
          <%= link_to "Minhas Consultas", usuario_agendamentos_path(current_usuario), :method => :get %>
 		     <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
->>>>>>> feature_agendamento_consulta
+
 		     <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
 
 		<% else %>
