@@ -51,8 +51,9 @@ class EspecialidadesController < ApplicationController
     end
   end
 
-  # DELETE /especialidades/1
-  # DELETE /especialidades/1.json
+  # foi retirado da tela  o delete pois caso o registro 
+  # seja excluido , podera gerar incosistencia de dados 
+
   def destroy
     @especialidade.destroy
     respond_to do |format|
@@ -62,7 +63,7 @@ class EspecialidadesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Volta com as acoes realizadas
     def set_especialidade
       @especialidade = Especialidade.find(params[:id])
     end
