@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
-    <div class="home" id="home">       
+    <div class="home" id="home">
     </div>
 
 <title>HOME</title>
@@ -38,7 +38,10 @@ body, html {
 		     <%= link_to "Cancelar uma Consulta" %>
          <%= link_to "Minhas Consultas", usuario_agendamentos_path(current_usuario), :method => :get %>
 		     <%= link_to "Minha Conta", edit_usuario_registration_path, :method => :get %>
+         <% if  (current_usuario.nome  == 'admin' )  %>
+          				<%= link_to "  ADMINISTRADOR", "/administrar",:method => :get %>
 
+         <% end %>
 		     <%= link_to "Sair", destroy_usuario_session_path , :method => :delete%>
 
 		<% else %>
@@ -53,7 +56,7 @@ body, html {
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">SOBRE O SUS</a>
 
-	<!-- 
+	<!--
 	<a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i>CRIAR CONTA</a>
       	<a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i>ENTRAR</a>
       -->
@@ -73,13 +76,13 @@ body, html {
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">SOBRE O SUS</a>
 
-<!-- 
+<!--
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">CRIAR CONTA</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">ENTRAR</a>
 -->
 
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTATO</a>
-  
+
 </nav>
 
 
@@ -125,7 +128,7 @@ body, html {
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>IR PARA O INÍCIO</a>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
- 
+
 
 <script>
 
@@ -156,5 +159,3 @@ function w3_close() {
 </script>
 </body>
 </html>
-
-
